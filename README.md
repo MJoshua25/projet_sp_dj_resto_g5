@@ -39,7 +39,7 @@
 ```
 ''{{  }}'' est le délimiteur par défaut de Vue.js
   Ensuite nous allons créer une vue après le script de Vue.js:
-```javasrcipt
+```javascript
 var app = new Vue({
   el: '#app', // Premet de précisé l'id de l'élément lié à la vue
   data: { // déclaration des différentes variables
@@ -50,3 +50,22 @@ var app = new Vue({
 résultats: Vue1.html
 
 Le code ci dessus permet d'afficher la variable message dans une vue
+
+
+## affectation de propriété
+  Afin de ne pas confondre le delimiteur de Vue.js avec celui de Jinja nous allons modifier celui de Vue.js en le faisan passer à: "${ }"
+  syntaxe:
+  ```javascript
+  delimiters: ["${","}"],
+  ```
+  Pour affecter un variable à une propriété, l'on utilise "v-bind:nom_de_la_propriété='nom_de_la_variable'"
+  Exemple
+  Juste après notre variable message, nous allons ajouter la variable messages puis nous allons ajouter le code suivant dans notre div(app):
+  ```html
+<span v-bind:title="messages">
+  Hover your mouse over me for a few seconds
+  to see my dynamically bound title!
+</span>
+  ```
+  resultats vue2.html
+  
