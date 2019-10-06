@@ -6,6 +6,7 @@
 - Bootstrap
 - documentation Vue.js: https://fr.vuejs.org/v2/guide/
 - Utilisation axios dans Vue: https://fr.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
+- Mon code : https://github.com/MJoshua25/first_projet.git
 
 ## Créer notre première Vue
   Pour ce créer notre première vue nous allons prendre pour base le template par défaut de bootstrap:
