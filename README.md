@@ -41,7 +41,12 @@
 ```
 ''{{  }}'' est le délimiteur par défaut de Vue.js
   Ensuite nous allons créer une vue après le script de Vue.js:
+<<<<<<< Updated upstream
 ```javascript
+=======
+
+```javasrcipt
+>>>>>>> Stashed changes
 var app = new Vue({
   el: '#app', // Premet de précisé l'id de l'élément lié à la vue
   data: { // déclaration des différentes variables
