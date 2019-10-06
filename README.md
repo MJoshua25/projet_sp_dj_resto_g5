@@ -4,6 +4,8 @@
 - Vue.js cdn : <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 - Axios cdn : <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 - Bootstrap
+- documentation Vue.js: https://fr.vuejs.org/v2/guide/
+- Utilisation axios dans Vue: https://fr.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
 
 ## Créer notre première Vue
   Pour ce créer notre première vue nous allons prendre pour base le template par défaut de bootstrap:
@@ -69,3 +71,5 @@ Le code ci dessus permet d'afficher la variable message dans une vue
   ```
   resultats vue2.html
   
+## suite
+  pour la suite veuillez vous référer à la documentation et à mon code
