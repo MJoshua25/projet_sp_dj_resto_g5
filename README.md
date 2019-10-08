@@ -87,6 +87,14 @@ Nous aurons 6 applications qui sont: entreprise, configuration,statistique,conta
 
 ## entreprise
 
+#### Niveau
+  * Presentation
+  * Personnel
+    * Social_ent
+    * Poste
+    
+#### Models
+
 ```python
   class Presentation(Timemodels):
         """Model definition for Presentation."""
@@ -144,6 +152,36 @@ Nous aurons 6 applications qui sont: entreprise, configuration,statistique,conta
 ```
 
 ## Configuration
+
+#### Niveau
+  Pas d'api
+  la configuration se fait avec jinja
+  
+#### myfields.py
+```python
+    from django.utils.translation import ugettext as _
+    from django.db.models import SmallIntegerField
+    from django.db import models
+
+    DAY_OF_THE_WEEK = {
+        '1' : _(u'Monday'),
+        '2' : _(u'Tuesday'),
+        '3' : _(u'Wednesday'),
+        '4' : _(u'Thursday'),
+        '5' : _(u'Friday'),
+        '6' : _(u'Saturday'),
+        '7' : _(u'Sunday'),
+    }
+
+    class DayOfTheWeekField(models.CharField):
+        def __init__(self, *args, **kwargs):
+            kwargs['choices']=tuple(sorted(DAY_OF_THE_WEEK.items()))
+            kwargs['max_length']=1
+            super(DayOfTheWeekField,self).__init__(*args, **kwargs)
+```
+    
+#### Models
+
 ```python
   class Timemodels(models.Model):
       statut = models.BooleanField(default=False)
@@ -242,6 +280,12 @@ Nous aurons 6 applications qui sont: entreprise, configuration,statistique,conta
 
 ## Contact
 
+#### Niveau
+  * Message
+  * Newsletter
+    
+#### Models
+
 ```python
     class Message(Timemodels):
         """Model definition for Message."""
@@ -271,11 +315,20 @@ Nous aurons 6 applications qui sont: entreprise, configuration,statistique,conta
 
 
 ## Menu
+
+#### Niveau
+  * Menu
+    * category
+      * plat
+        * ingredients
+    
+#### Models
+
 ```python
     class Menu(Timemodels):
         nom =  models.CharField(max_length=255)
         jour = myfields.DayOfTheWeekField(unique="True")
-        plats = models.ManyToManyField('Plat',related_name='social_icon')
+        plats = models.ManyToManyField('Plat',related_name='menu_plat')
         
         def __str__(self):
         return self.nom
@@ -324,6 +377,13 @@ Nous aurons 6 applications qui sont: entreprise, configuration,statistique,conta
 ```
 
 ## clientele
+
+#### Niveau
+  * Reservation
+  * Temoignage
+    
+#### Models
+
 ```python
     class Reservation(Timemodels):
         nom = models.CharField(max_length=160)
@@ -372,4 +432,5 @@ Nous aurons 6 applications qui sont: entreprise, configuration,statistique,conta
 ```
 
 # Page manquante
-  * coontact.html
+  * contact.html
+  
