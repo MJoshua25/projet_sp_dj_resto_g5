@@ -132,7 +132,7 @@ Nous aurons 6 applications qui sont: entreprise, configuration,statistique,conta
             verbose_name = 'Cuisinier'
             verbose_name_plural = 'Cuisiniers'
             
-    class Social(models.Model):
+    class Social_ent(Timemodels):
         # TODO: Define fields here
         icon = models.ManyToManyField('Social',related_name='social_icon')
         personnel = models.ForeignKey('Personnel', on_delete=models.CASCADE,related_name="presonnel_social")
@@ -235,5 +235,34 @@ Nous aurons 6 applications qui sont: entreprise, configuration,statistique,conta
 
         def __str__(self):
             """Unicode representation of About."""
-            pass
+            return self.nom
+```
+
+## Contact
+
+```python
+    class Message(Timemodels):
+        """Model definition for Message."""
+        nom = models.CharField(max_length=250)
+        sujet = models.CharField(max_length=250)
+        email = models.EmailField()
+        message = models.TextField()
+
+
+        # TODO: Define fields here
+
+        class Meta:
+            """Meta definition for Message."""
+
+            verbose_name = 'Message'
+            verbose_name_plural = 'Messages'
+            
+    class Newsletter(Timemodels):
+        email = models.EmailField()
+        def __str__(self):
+            return self.email
+
+        class Meta:
+            verbose_name = 'Newsletter'
+            verbose_name_plural = 'Newsletters'
 ```
