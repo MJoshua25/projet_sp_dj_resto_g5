@@ -307,7 +307,7 @@ Nous aurons 6 applications qui sont: entreprise, configuration,statistique,conta
             
             
     class Plat(Timemodels):
-        categorie = models.ForeignKey(Category, on_delete=models.CASCADE,related_name="category_client")
+        categorie = models.ForeignKey(Category, on_delete=models.CASCADE,related_name="menu_plat")
         nom = models.CharField(max_length=160)
         description = models.TextField(null=True)
         prix = models.FloatField()
@@ -322,3 +322,54 @@ Nous aurons 6 applications qui sont: entreprise, configuration,statistique,conta
             verbose_name = 'Plat'
             verbose_name_plural = 'Plats'
 ```
+
+## clientele
+```python
+    class Reservation(Timemodels):
+        nom = models.CharField(max_length=160)
+        email = models.EmailField()
+        numero = models.CharField(max_length=160)
+        date = models.DateField()
+        heure = models.TimeField()
+        personne = models.IntegerField()
+        
+        def __str__(self):
+        return self.nom
+
+        class Meta:
+            verbose_name = 'Reservation'
+            verbose_name_plural = 'Reservations'
+            
+
+    class Temoignage(Timemodels):
+        nom = models.CharField(max_length=160)
+        commentaire = models.TextField()
+        job = models.CharField(max_length=255)
+        
+        def __str__(self):
+            return self.nom
+
+        class Meta:
+            verbose_name = 'Temoignage'
+            verbose_name_plural = 'Temoignages'
+```
+
+## Statistiques
+```python
+    class InfoUser(Timemodels):
+    """Model definition for InfoUser."""
+
+    ip = models.GenericIPAddressField()
+    pays = models.CharField(max_length=50)
+    ville = models.CharField(max_length=50)
+    continent = models.CharField(max_length=50)
+    longitude = models.FloatField()
+    latitude = models.FloatField()
+    reseau = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.ip 
+```
+
+# Page manquante
+  * coontact.html
