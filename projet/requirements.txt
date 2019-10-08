@@ -1,0 +1,9 @@
+anyjson==0.3.3
+Django==2.2.6
+django-admin-generator==2.2.0
+django-utils2==2.5.4
+Pillow==6.2.0
+python-utils==2.3.0
+pytz==2019.3
+six==1.12.0
+sqlparse==0.3.0
