@@ -79,3 +79,161 @@ Le code ci dessus permet d'afficher la variable message dans une vue
   
 ## suite
   pour la suite veuillez vous référer à la documentation et à mon code
+  
+  
+  
+# Applications
+Nous aurons 6 applications qui sont: entreprise, configuration,statistique,contact et restaurant.
+
+## entreprise
+
+```python
+  class Presentation(Timemodels):
+        """Model definition for Presentation."""
+        
+        nom = models.CharField(max_length=255)
+        description = models.TextField()
+        logo = models.ImageField(upload_to='logo', )
+        working_hour = models.ManyToManyField('WorkingHour',related_name='working_config')
+        license_site = models.CharField(max_length=255)
+
+        class Meta:
+            """Meta definition for Presentation."""
+
+            verbose_name = 'Presentation'
+            verbose_name_plural = 'Presentations'
+
+        def __str__(self):
+            """Unicode representation of Presentation."""
+            return self.nom
+
+  class Poste(Timemodels):
+        nom = models.CharField(max_length=160)
+        
+        def __str__(self):
+            return self.nom
+
+        class Meta:
+            verbose_name = 'Poste'
+            verbose_name_plural = 'Postes'
+
+
+    class Personnel(Timemodels):
+        nom = models.CharField(max_length=160)
+        prenom = models.CharField(max_length=160)
+        photo = models.ImageField(upload_to='photo_presonnel')
+        poste = models.ForeignKey(Poste, on_delete=models.CASCADE,related_name="poste_presonnel")
+        social = models.ManyToManyField('Social',related_name='social_chef')
+        
+        def __str__(self):
+            return self.nom+ " " + self.prenom
+
+        class Meta:
+            verbose_name = 'Cuisinier'
+            verbose_name_plural = 'Cuisiniers'
+            
+    class Social(models.Model):
+        # TODO: Define fields here
+        icon = models.ManyToManyField('Social',related_name='social_icon')
+        personnel = models.ForeignKey('Personnel', on_delete=models.CASCADE,related_name="presonnel_social")
+        lien = models.URLField(max_length=200)
+        
+        def __str__(self):
+            return '{}'.format(self.name)
+       
+    class WorkingHour(Timemodels):
+      # TODO: Define fields here
+      jour = myfields.DayOfTheWeekField(unique="True")
+      start_hour = models.TimeField()
+      end_hour = models.TimeField()
+      class Meta:
+          verbose_name = "WorkingHour"
+          verbose_name_plural = "WorkingHours"
+
+      def __str__(self):
+          return '{}  {} - {}'.format(self.jour,self.start_hour,self.end_hour)
+```
+
+## Configuration
+```python
+  class Timemodels(models.Model):
+      statut = models.BooleanField(default=False)
+      date_add =  models.DateTimeField(auto_now_add=True)
+      date_update =  models.DateTimeField(auto_now=True)
+      class Meta:
+           abstract = True
+           
+   class About(Timemodels):
+        """Model definition for About."""
+
+        nom = models.CharField(max_length=255)
+        description = models.TextField()
+        image = models.ImageField(upload_to='image_about', )
+
+        class Meta:
+            """Meta definition for About."""
+
+            verbose_name = 'About'
+            verbose_name_plural = 'Abouts'
+
+        def __str__(self):
+            """Unicode representation of About."""
+            pass
+            
+    class Social(Timemodels):
+        # TODO: Define fields here
+        choice=[('FB','facebook'),('TW','twitter'),('INS','instagram'),('GOO','google')]
+        name = models.CharField(max_length=100,choices=choice)
+
+        @property
+        def font(self):
+            if self.name == 'FB':
+                font = 'fab fa-facebook-f'
+            elif self.name == 'TW':
+                font ='fab fa-twitter'
+            elif self.name == 'INS':
+                font ='fab fa-instagram'
+            elif self.name == 'GOO':
+                font ='fab fa-google-plus-g'
+            return font
+        class Meta:
+            verbose_name = "Social"
+            verbose_name_plural = "Socials"
+
+        def __str__(self):
+            return '{}'.format(self.name)
+            
+           
+    class ReserveConfiguration(Timemodels):
+        """Model definition for ReserveConfiguration."""
+
+        titre_formulaire = models.CharField(max_length=255)
+        sous_titre_formulaire = models.CharField(max_length=255)
+        image = models.ImageField(upload_to='resrvation_back')
+
+
+        # TODO: Define fields here
+
+        class Meta:
+            """Meta definition for ReserveConfiguration."""
+
+            verbose_name = 'ReserveConfiguration'
+            verbose_name_plural = 'ReserveConfigurations'
+            
+    class About(Timemodels):
+        """Model definition for About."""
+
+        nom = models.CharField(max_length=255)
+        description = models.TextField()
+        image = models.ImageField(upload_to='image_about', )
+
+        class Meta:
+            """Meta definition for About."""
+
+            verbose_name = 'About'
+            verbose_name_plural = 'Abouts'
+
+        def __str__(self):
+            """Unicode representation of About."""
+            pass
+```
