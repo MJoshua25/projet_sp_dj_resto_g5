@@ -140,8 +140,20 @@ Nous aurons 6 applications qui sont: entreprise, configuration,statistique,conta
         
         def __str__(self):
             return '{}'.format(self.name)
-       
-    class WorkingHour(Timemodels):
+    
+```
+
+## Configuration
+```python
+  class Timemodels(models.Model):
+      statut = models.BooleanField(default=False)
+      date_add =  models.DateTimeField(auto_now_add=True)
+      date_update =  models.DateTimeField(auto_now=True)
+      
+      class Meta:
+           abstract = True
+           
+   class WorkingHour(Timemodels):
       # TODO: Define fields here
       jour = myfields.DayOfTheWeekField(unique="True")
       start_hour = models.TimeField()
@@ -152,16 +164,6 @@ Nous aurons 6 applications qui sont: entreprise, configuration,statistique,conta
 
       def __str__(self):
           return '{}  {} - {}'.format(self.jour,self.start_hour,self.end_hour)
-```
-
-## Configuration
-```python
-  class Timemodels(models.Model):
-      statut = models.BooleanField(default=False)
-      date_add =  models.DateTimeField(auto_now_add=True)
-      date_update =  models.DateTimeField(auto_now=True)
-      class Meta:
-           abstract = True
            
    class About(Timemodels):
         """Model definition for About."""
@@ -265,4 +267,58 @@ Nous aurons 6 applications qui sont: entreprise, configuration,statistique,conta
         class Meta:
             verbose_name = 'Newsletter'
             verbose_name_plural = 'Newsletters'
+```
+
+
+## Menu
+```python
+    class Menu(Timemodels):
+        nom =  models.CharField(max_length=255)
+        jour = myfields.DayOfTheWeekField(unique="True")
+        plats = models.ManyToManyField('Plat',related_name='social_icon')
+        
+        def __str__(self):
+        return self.nom
+        
+        class Meta:
+            verbose_name = 'Category'
+            verbose_name_plural = 'Categorys'
+
+    class Category(Timemodels):
+        nom =  models.CharField(max_length=255)
+        
+        def __str__(self):
+        return self.nom
+        
+        class Meta:
+            verbose_name = 'Category'
+            verbose_name_plural = 'Categorys'
+
+
+    class Ingredient(Timemodels):
+        nom =  models.CharField(max_length=255)
+        
+        def __str__(self):
+            return self.nom
+        
+        class Meta:
+            verbose_name = 'Ingredient'
+            verbose_name_plural = 'Ingredient'
+            
+            
+    class Plat(Timemodels):
+        categorie = models.ForeignKey(Category, on_delete=models.CASCADE,related_name="category_client")
+        nom = models.CharField(max_length=160)
+        description = models.TextField(null=True)
+        prix = models.FloatField()
+        ingredient = models.ManyToManyField(Ingredient,related_name="ingrediant_plat")
+        image = models.ImageField(upload_to='restaurant/plat')
+        speciale = models.BooleanField(default=False)
+        def __str__(self):
+            return self.nom
+
+        class Meta:
+
+            verbose_name = 'Plat'
+            verbose_name_plural = 'Plats'
 ```
