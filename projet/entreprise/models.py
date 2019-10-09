@@ -50,7 +50,7 @@ class Personnel(Timemodels):
     prenom = models.CharField(max_length=160)
     photo = models.ImageField(upload_to='photo_presonnel')
     poste = models.ForeignKey(Poste, on_delete=models.CASCADE,related_name="poste_presonnel")
-    social = models.ManyToManyField('Social',related_name='social_chef')
+
         
     def __str__(self):
         return self.nom+ " " + self.prenom
@@ -61,10 +61,10 @@ class Personnel(Timemodels):
             
 class Social(Timemodels):
         # TODO: Define fields here
-    icon = models.ManyToManyField('Social',related_name='social_icon')
-    personnel = models.ForeignKey('Personnel', on_delete=models.CASCADE,related_name="presonnel_social")
+    icon = models.ForeignKey('Social', on_delete=models.CASCADE,related_name="social_icon")
+    personnel = models.ForeignKey('Personnel', on_delete=models.CASCADE,related_name="personnel_social")
     lien = models.URLField(max_length=200)
         
     def __str__(self):
-        return '{}'.format(self.personnel)
+        return '{}'.format(self.name)
     
