@@ -22,13 +22,13 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('entreprise/', include('entreprise.urls')),
-    # path('cinfig/', include('configuration.urls')),
+    # path('config/', include('configuration.urls')),
     # path('contact/', include('contact.urls')),
     path('menu/', include('menu.urls')),
     path('reservation/', include('reservation.urls')),
     # path('temoignage/', include('temoignage.urls')),
     # path('statistic/', include('statistic.urls')),
-    # path('', include('api.urls')),
+    path('api/', include('api.urls')),
 ]
 
 

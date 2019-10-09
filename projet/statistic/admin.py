@@ -12,31 +12,16 @@ class InfoUserAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'statut',
-        'date_add',
-        'date_update',
         'ip',
         'pays',
         'ville',
         'continent',
-        'longitude',
-        'latitude',
         'reseau',
     )
     list_filter = (
         'statut',
         'date_add',
         'date_update',
-        'id',
-        'statut',
-        'date_add',
-        'date_update',
-        'ip',
-        'pays',
-        'ville',
-        'continent',
-        'longitude',
-        'latitude',
-        'reseau',
     )
 
 

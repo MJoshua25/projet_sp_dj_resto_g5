@@ -12,23 +12,13 @@ class TemoignageAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'statut',
-        'date_add',
-        'date_update',
         'nom',
-        'commentaire',
         'job',
     )
     list_filter = (
         'statut',
         'date_add',
         'date_update',
-        'id',
-        'statut',
-        'date_add',
-        'date_update',
-        'nom',
-        'commentaire',
-        'job',
     )
 
 

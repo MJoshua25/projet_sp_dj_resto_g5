@@ -12,8 +12,6 @@ class PresentationAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'statut',
-        'date_add',
-        'date_update',
         'nom',
         'description',
         'logo',
@@ -23,30 +21,17 @@ class PresentationAdmin(admin.ModelAdmin):
         'statut',
         'date_add',
         'date_update',
-        'id',
-        'statut',
-        'date_add',
-        'date_update',
-        'nom',
-        'description',
-        'logo',
-        'license_site',
     )
     raw_id_fields = ('working_hour',)
 
 
 class PosteAdmin(admin.ModelAdmin):
 
-    list_display = ('id', 'statut', 'date_add', 'date_update', 'nom')
+    list_display = ('id', 'statut', 'nom')
     list_filter = (
         'statut',
         'date_add',
         'date_update',
-        'id',
-        'statut',
-        'date_add',
-        'date_update',
-        'nom',
     )
 
 
@@ -55,8 +40,6 @@ class PersonnelAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'statut',
-        'date_add',
-        'date_update',
         'nom',
         'prenom',
         'photo',
@@ -66,15 +49,6 @@ class PersonnelAdmin(admin.ModelAdmin):
         'statut',
         'date_add',
         'date_update',
-        'poste',
-        'id',
-        'statut',
-        'date_add',
-        'date_update',
-        'nom',
-        'prenom',
-        'photo',
-        'poste',
     )
     raw_id_fields = ('social',)
 
@@ -84,8 +58,6 @@ class SocialAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'statut',
-        'date_add',
-        'date_update',
         'personnel',
         'lien',
     )
@@ -93,13 +65,6 @@ class SocialAdmin(admin.ModelAdmin):
         'statut',
         'date_add',
         'date_update',
-        'personnel',
-        'id',
-        'statut',
-        'date_add',
-        'date_update',
-        'personnel',
-        'lien',
     )
     raw_id_fields = ('icon',)
 

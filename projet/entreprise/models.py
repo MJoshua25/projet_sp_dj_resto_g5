@@ -38,7 +38,7 @@ class Poste(Timemodels):
     nom = models.CharField(max_length=160)
         
     def __str__(self):
-            return self.nom
+        return self.nom
 
     class Meta:
         verbose_name = 'Poste'
@@ -66,5 +66,5 @@ class Social(Timemodels):
     lien = models.URLField(max_length=200)
         
     def __str__(self):
-        return '{}'.format(self.name)
+        return '{}'.format(self.personnel)
     
