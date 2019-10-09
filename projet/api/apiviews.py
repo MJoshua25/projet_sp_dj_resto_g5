@@ -24,8 +24,8 @@ class PresentationViewSet(viewsets.ModelViewSet):
     
 class Social_entViewSet(viewsets.ModelViewSet):
     filter_backends = (DynamicSearchFilter,)
-    queryset = Social_ent.objects.all()
-    serializer_class = Social_entSerializer
+    queryset = Social.objects.all()
+    serializer_class = SocialSerializer
 
 class PersonnelViewSet(viewsets.ModelViewSet):
     filter_backends = (DynamicSearchFilter,)
