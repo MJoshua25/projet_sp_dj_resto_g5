@@ -85,7 +85,7 @@
                 </li>
                 <div class="d-flex flex-lg-row flex-column">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'home'%}">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'about'%}">About</a>
@@ -96,8 +96,8 @@
                           Special Dishes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="{% url 'special'%}">Beef Steak Sauce</a>
-                          <a class="dropdown-item" href="{% url 'special'%}">Salmon Zucchini</a>
+                          <a class="dropdown-item" href="">Beef Steak Sauce</a>
+                          <a class="dropdown-item" href="{% url 'specialSalmon' %}">Salmon Zucchini</a>
                         </div>
                     </li>
                 </div>
@@ -112,7 +112,7 @@
                         <a class="nav-link" href="{% url 'menu'%}">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'teams'%}">Team</a>
+                        <a class="nav-link" href="{% url 'teams' %}">Team</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -161,13 +161,15 @@
          		<div class="footer-widget px-lg-5 px-0">
          			<h4>Open Hours</h4>
 	         		<ul class="list-unstyled open-hours">
-		                <li class="d-flex justify-content-between"><span>Monday</span><span>9:00 - 24:00</span></li>
-		                <li class="d-flex justify-content-between"><span>Tuesday</span><span>9:00 - 24:00</span></li>
-		                <li class="d-flex justify-content-between"><span>Wednesday</span><span>9:00 - 24:00</span></li>
-		                <li class="d-flex justify-content-between"><span>Thursday</span><span>9:00 - 24:00</span></li>
-		                <li class="d-flex justify-content-between"><span>Friday</span><span>9:00 - 02:00</span></li>
-		                <li class="d-flex justify-content-between"><span>Saturday</span><span>9:00 - 02:00</span></li>
-		                <li class="d-flex justify-content-between"><span>Sunday</span><span> Closed</span></li>
+						 {% for horaire in hour%}
+						
+						 
+						 
+					
+					 <li class="d-flex justify-content-between"><span>{{horaire.get_jour_display}}</span><span>{{horaire.start_hour}} - {{horaire.end_hour}}</span></li>
+					 
+						{% endfor %}
+						
 		              </ul>
          		</div>
          		

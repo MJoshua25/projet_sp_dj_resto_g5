@@ -1,17 +1,23 @@
 {% extends "bases/base.html" %}
 {% block main %}
-    <section id="gtco-reservation" class="bg-fixed bg-white section-padding overlay" style="background-image: url(/static/img/reservation-bg.jpg);">
+{% for forms in form %}
+
+    <section id="gtco-reservation" class="bg-fixed bg-white section-padding overlay" style="background-image: url({{forms.image.url}});">
     <div class="container">
         <div class="row">
             <div class="col-lg-5">
                 <div class="section-content bg-white p-5 shadow">
                     <div class="heading-section text-center">
+                        
                         <span class="subheading">
-                            Reservation
+
+                            {{forms.titre_formulaire}}
                         </span>
                         <h2>
-                            Book Now
+                                {{forms.sous_titre_formulaire}}
                         </h2>
+                      
+                        {% endfor %}
                     </div>
                     <form method="post" name="contact-us" action="">
                         <div class="row">
