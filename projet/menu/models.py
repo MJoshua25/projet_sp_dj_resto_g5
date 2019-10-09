@@ -6,18 +6,17 @@ class Menu(Timemodels):
     nom =  models.CharField(max_length=255)
     jour = DayOfTheWeekField(unique="True")
     plats = models.ManyToManyField('Plat',related_name='menu_plat')
-        
+
     def __str__(self):
-        
         return self.nom
-        
+
     class Meta:
         verbose_name = 'menu'
         verbose_name_plural = 'menu du jour'
 
 class Category(Timemodels):
     nom =  models.CharField(max_length=255)
-        
+
     def __str__(self):
         
         return self.nom
@@ -29,15 +28,15 @@ class Category(Timemodels):
 
 class Ingredient(Timemodels):
     nom =  models.CharField(max_length=255)
-        
+
     def __str__(self):
         return self.nom
         
     class Meta:
         verbose_name = 'Ingredient'
         verbose_name_plural = 'Ingredient'
-            
-            
+
+
 class Plat(Timemodels):
     categorie = models.ForeignKey(Category, on_delete=models.CASCADE,related_name="menu_plat")
     nom = models.CharField(max_length=160)

@@ -6,19 +6,12 @@ import datetime
 
 
 def home(request):
-   
     hour = WorkingHour.objects.filter(statut=True)
-
     data = {
-   
         'hour':hour,
-      
     }
 
     template_name = 'pages/index.html'
-    
-    
-    
     return render(request,template_name, data)
 
 # def open_hour(request, table):

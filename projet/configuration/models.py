@@ -50,37 +50,30 @@ class WorkingHour(Timemodels):
         
         return '{}  {} - {}'.format(self.jour,self.start_hour,self.end_hour)
            
-class About(Timemodels):
-    
-    """Model definition for About."""
 
+class About(Timemodels):
+    """Model definition for About."""
     nom = models.CharField(max_length=255)
     description = models.TextField()
     image = models.ImageField(upload_to='image_about', )
 
     class Meta:
-        
-        
         """Meta definition for About."""
-
         verbose_name = 'About'
         verbose_name_plural = 'Abouts'
 
     def __str__(self):
-        pass
-            
+        return self.nom
+
+
+
 class Social(Timemodels):
-    
-    
-    
     # TODO: Define fields here
     choice=[('FB','facebook'),('TW','twitter'),('INS','instagram'),('GOO','google')]
     name = models.CharField(max_length=100,choices=choice)
 
     @property
     def font(self):
-        
-            
         if self.name == 'FB':
             font = 'fab fa-facebook-f'
         elif self.name == 'TW':
@@ -90,19 +83,16 @@ class Social(Timemodels):
         elif self.name == 'GOO':
             font ='fab fa-google-plus-g'
         return font
+
     class Meta:
-            
         verbose_name = "Social"
         verbose_name_plural = "Socials"
 
     def __str__(self):
-            
         return '{}'.format(self.name)
-            
-           
+
+
 class ReserveConfiguration(Timemodels):
-    
-    
     """Model definition for ReserveConfiguration."""
 
     titre_formulaire = models.CharField(max_length=255)
@@ -111,25 +101,7 @@ class ReserveConfiguration(Timemodels):
 
 
         # TODO: Define fields here
-
     class Meta:
         """Meta definition for ReserveConfiguration."""
-
         verbose_name = 'ReserveConfiguration'
         verbose_name_plural = 'ReserveConfigurations'
-            
-class About(Timemodels):
-    
-    
-    nom = models.CharField(max_length=255)
-    description = models.TextField()
-    image = models.ImageField(upload_to='image_about',)
-
-    class Meta:
-        """Meta definition for About."""
-
-        verbose_name = 'About'
-        verbose_name_plural = 'Abouts'
-
-    def __str__(self):
-        return self.nom

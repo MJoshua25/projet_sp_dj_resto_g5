@@ -10,9 +10,6 @@ class Table (Timemodels):
 
     def __str__(self):
         return self.nom
-      
-
-
 
 
 class Reservation(Timemodels):
