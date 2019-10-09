@@ -4,15 +4,18 @@ from configuration.models import *
 # Create your models here.
 #----------------reservation-----------#
 class Table (Timemodels):
-     nom = models.CharField(max_length=255)
-     person = models.PositiveIntegerField()
-     disponible = models.BooleanField(default=True)
+    nom = models.CharField(max_length=255)
+    person = models.PositiveIntegerField()
+    disponible = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.nom
       
 
 
 
 
-class reservation(Timemodels):
+class Reservation(Timemodels):
     phone = models.IntegerField()
     nom = models.CharField(max_length=255)
     email = models.EmailField()
@@ -20,3 +23,6 @@ class reservation(Timemodels):
     time = models.TimeField()
     message =  models.TextField()
     table = models.ForeignKey(Table,on_delete=models.CASCADE, related_name="tables")
+
+    def __str__(self):
+        return self.nom

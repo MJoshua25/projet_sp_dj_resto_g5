@@ -2,9 +2,6 @@ from django.db import models
 from configuration.models import *
 # Create your models here.
 class InfoUser(Timemodels):
-    
-    
-  
 
     ip = models.GenericIPAddressField()
     pays = models.CharField(max_length=50)

@@ -12,40 +12,24 @@ class MessageAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'statut',
-        'date_add',
-        'date_update',
         'nom',
         'sujet',
         'email',
-        'message',
     )
     list_filter = (
         'statut',
         'date_add',
         'date_update',
-        'id',
-        'statut',
-        'date_add',
-        'date_update',
-        'nom',
-        'sujet',
-        'email',
-        'message',
     )
 
 
 class NewsletterAdmin(admin.ModelAdmin):
 
-    list_display = ('id', 'statut', 'date_add', 'date_update', 'email')
+    list_display = ('id', 'statut', 'email')
     list_filter = (
         'statut',
         'date_add',
         'date_update',
-        'id',
-        'statut',
-        'date_add',
-        'date_update',
-        'email',
     )
 
 
