@@ -61,8 +61,8 @@ class Personnel(Timemodels):
             
 class Social_ent(Timemodels):
         # TODO: Define fields here
-    icon = models.ManyToManyField('Social',related_name='social_icon')
-    personnel = models.ForeignKey('Personnel', on_delete=models.CASCADE,related_name="presonnel_social")
+    icon = models.ForeignKey('Social', on_delete=models.CASCADE,related_name="social_icon")
+    personnel = models.ForeignKey('Personnel', on_delete=models.CASCADE,related_name="personnel_social")
     lien = models.URLField(max_length=200)
         
     def __str__(self):
