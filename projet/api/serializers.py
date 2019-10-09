@@ -62,7 +62,7 @@ class PlatSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
 
 
 class CategorySerializer(DynamicFieldsMixin, serializers.ModelSerializer):
-    menu_plat = PlatSerializer(many=True, required=False)
+    category_plat = PlatSerializer(many=True, required=False)
     class Meta:
         model = Category
         fields = '__all__'

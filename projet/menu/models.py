@@ -38,7 +38,7 @@ class Ingredient(Timemodels):
 
 
 class Plat(Timemodels):
-    categorie = models.ForeignKey(Category, on_delete=models.CASCADE,related_name="menu_plat")
+    categorie = models.ForeignKey(Category, on_delete=models.CASCADE,related_name="category_plat")
     nom = models.CharField(max_length=160)
     description = models.TextField(null=True)
     prix = models.FloatField()
