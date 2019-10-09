@@ -1,16 +1,65 @@
 {% extends "bases/base.html" %}
 {% block main %}
     <section id="gtco-menu" class="section-padding">
-    <div class="container">
+    <menu-todo 
+    v-bind:specialite="specialite"
+    v-bind:titre_menu="titre_menu"
+    v-bind:catego1="catego1"
+    v-bind:image1="image1"
+    v-bind:nom_cat1="nom_cat1"
+    v-bind:prix_cat1="prix_cat1"
+    v-bind:description_cat1="description_cat1"
+    v-bind:image2="image2"
+    v-bind:nom_cat2="nom_cat2"
+    v-bind:prix_cat2="prix_cat2"
+    v-bind:description_cat2="description_cat2"
+    v-bind:image3="image3"
+    v-bind:nom_cat3="nom_cat3"
+    v-bind:prix_cat3="prix_cat3"
+    v-bind:description_cat3="description_cat3"
+    v-bind:catego2= "catego2"
+    v-bind:image4="image4"
+    v-bind:nom_cat4="nom_cat4"
+    v-bind:prix_cat4="prix_cat4"
+    v-bind:description_cat4="description_cat4"
+    v-bind:image5="image5"
+    v-bind:nom_cat5="nom_cat5"
+    v-bind:prix_cat5="prix_cat5"
+    v-bind:description_cat5="description_cat5"
+    v-bind:image6="image6"
+    v-bind:nom_cat6="nom_cat6"
+    v-bind:prix_cat6="prix_cat6"
+    v-bind:description_cat6="description_cat6"
+    v-bind:catego3= "catego3"
+    v-bind:image7="image7"
+    v-bind:nom_cat7="nom_cat7"
+    v-bind:prix_cat7="prix_cat7"
+    v-bind:description_cat7="description_cat7"
+    v-bind:image8="image8"
+    v-bind:nom_cat8="nom_cat8"
+    v-bind:prix_cat8="prix_cat8"
+    v-bind:description_cat8="description_cat8"
+    v-bind:image9="image9"
+    v-bind:nom_cat9="nom_cat9"
+    v-bind:prix_cat9="prix_cat9"
+    v-bind:description_cat9="description_cat9"
+    ></menu-todo>
+</section>
+<script>
+     Vue.component('menu-todo', 
+                {
+                    props: ['specialite', 'titre_menu', 'catego1', 'image1', 'nom_cat1', 'prix_cat1', 'description_cat1', 'image2', 'nom_cat2', 'prix_cat2', 'description_cat2', 'image3', 'nom_cat3', 'prix_cat3', 'description_cat3', 'catego2', 'image4', 'nom_cat4', 'prix_cat4', 'description_cat4', 'image5', 'nom_cat5', 'prix_cat5', 'description_cat5', 'image6', 'nom_cat6', 'prix_cat6', 'description_cat6', 'catego3', 'image7', 'nom_cat7', 'prix_cat7', 'description_cat7', 'image8', 'nom_cat8', 'prix_cat8', 'description_cat8', 'image9', 'nom_cat9', 'prix_cat9', 'description_cat9'],
+                    template: `
+                        <div class="container">
         <div class="section-content">
             <div class="row mb-5">
                 <div class="col-md-12">
                     <div class="heading-section text-center">
                         <span class="subheading">
-                            Specialties
+                            {{specialite}}
                         </span>
                         <h2>
-                            Our Menu
+                            {{titre_menu}}
                         </h2>
                     </div>  
                 </div>
@@ -18,167 +67,224 @@
             <div class="row">
                 <div class="col-lg-4 menu-wrap">
                     <div class="heading-menu">
-                        <h3 class="text-center mb-5">Breakfast</h3>
+                        <h3 class="text-center mb-5">{{ catego1 }}</h3>
                     </div>
                     <div class="menus d-flex align-items-center">
                         <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
+                            <img class="img-fluid" src="{{ image1 }}" alt="">
                         </div>
                         <div class="text-wrap">
                             <div class="row align-items-start">
                                 <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
+                                    <h4>{{ nom_cat1 }}</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                    <h4 class="text-muted menu-price">{{ prix_cat1 }}</h4>
                                 </div>
                             </div>
-                            <p>Meat Ball, Mie</p>
+                            <p>{{ description_cat1 }}</p>
                         </div>
                     </div>
                     <div class="menus d-flex align-items-center">
                         <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
+                            <img class="img-fluid" src="{{ image2 }}" alt="">
                         </div>
                         <div class="text-wrap">
                             <div class="row align-items-start">
                                 <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
+                                    <h4>{{ nom_cat2 }}</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                    <h4 class="text-muted menu-price">{{ prix_cat2 }}</h4>
                                 </div>
                             </div>
-                            <p>Meat Ball, Mie</p>
+                            <p>{{ description_cat2 }}</p>
                         </div>
                     </div>
                     <div class="menus d-flex align-items-center">
                         <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
+                            <img class="img-fluid" src="{{ image3 }}" alt="">
                         </div>
                         <div class="text-wrap">
                             <div class="row align-items-start">
                                 <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
+                                    <h4>{{ nom_cat3 }}</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                    <h4 class="text-muted menu-price">{{ prix_cat3 }}</h4>
                                 </div>
                             </div>
-                            <p>Meat Ball, Mie</p>
+                            <p>{{ description_cat3 }}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 menu-wrap">
                     <div class="heading-menu">
-                        <h3 class="text-center mb-5">Breakfast</h3>
+                        <h3 class="text-center mb-5">{{ catego2 }}</h3>
                     </div>
                     <div class="menus d-flex align-items-center">
                         <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
+                            <img class="img-fluid" src="{{ image4 }}" alt="">
                         </div>
                         <div class="text-wrap">
                             <div class="row align-items-start">
                                 <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
+                                    <h4>{{ nom_cat4 }}</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                    <h4 class="text-muted menu-price">{{ prix_cat4 }}</h4>
                                 </div>
                             </div>
-                            <p>Meat Ball, Mie</p>
+                            <p>{{ description_cat4 }}</p>
                         </div>
                     </div>
                     <div class="menus d-flex align-items-center">
                         <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
+                            <img class="img-fluid" src="{{ image5 }}" alt="">
                         </div>
                         <div class="text-wrap">
                             <div class="row align-items-start">
                                 <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
+                                    <h4>{{ nom_cat5 }}</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                    <h4 class="text-muted menu-price">{{ prix_cat5 }}</h4>
                                 </div>
                             </div>
-                            <p>Meat Ball, Mie</p>
+                            <p>{{ description_cat5 }}</p>
                         </div>
                     </div>
                     <div class="menus d-flex align-items-center">
                         <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
+                            <img class="img-fluid" src="{{ image6 }}" alt="">
                         </div>
                         <div class="text-wrap">
                             <div class="row align-items-start">
                                 <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
+                                    <h4>{{ nom_cat6 }}</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                    <h4 class="text-muted menu-price">{{ prix_cat6 }}</h4>
                                 </div>
                             </div>
-                            <p>Meat Ball, Mie</p>
+                            <p>{{ description_cat6 }}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 menu-wrap">
                     <div class="heading-menu">
-                        <h3 class="text-center mb-5">Breakfast</h3>
+                        <h3 class="text-center mb-5">{{ catego3 }}</h3>
                     </div>
                     <div class="menus d-flex align-items-center">
                         <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
+                            <img class="img-fluid" src="{{ image7 }}" alt="">
                         </div>
                         <div class="text-wrap">
                             <div class="row align-items-start">
                                 <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
+                                    <h4>{{ nom_cat7 }}</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                    <h4 class="text-muted menu-price">{{ prix_cat7 }}</h4>
                                 </div>
                             </div>
-                            <p>Meat Ball, Mie</p>
+                            <p>{{ description_cat7 }}</p>
                         </div>
                     </div>
                     <div class="menus d-flex align-items-center">
                         <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
+                            <img class="img-fluid" src="{{ image8 }}" alt="">
                         </div>
                         <div class="text-wrap">
                             <div class="row align-items-start">
                                 <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
+                                    <h4>{{ nom_cat8 }}</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                    <h4 class="text-muted menu-price">{{ prix_cat8 }}</h4>
                                 </div>
                             </div>
-                            <p>Meat Ball, Mie</p>
+                            <p>{{ description_cat8 }}</p>
                         </div>
                     </div>
                     <div class="menus d-flex align-items-center">
                         <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
+                            <img class="img-fluid" src="{{ image9 }}" alt="">
                         </div>
                         <div class="text-wrap">
                             <div class="row align-items-start">
                                 <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
+                                    <h4>{{ nom_cat9 }}</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                    <h4 class="text-muted menu-price">{{ prix_cat9 }}</h4>
                                 </div>
                             </div>
-                            <p>Meat Ball, Mie</p>
+                            <p>{{ description_cat9 }}</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+                    `
+                })
+            
+            var menu = new Vue({
+                el: '#gtco-menu',
+                data: {
+                    specialite: 'Specialites',
+                    titre_menu: 'Our Menu',
+                    catego1: 'Breakfast',
+                    image1: '/static/img/breakfast-1.jpg',
+                    nom_cat1: 'Egg Sandwich',
+                    prix_cat1: '$30',
+                    description_cat1: 'Meat Ball, Mie',
+                    
+                    image2: '/static/img/breakfast-1.jpg',
+                    nom_cat2: 'Egg Sandwich',
+                    prix_cat2: '$30',
+                    description_cat2: 'Meat Ball, Mie',
+                    
+                    image3: '/static/img/breakfast-1.jpg',
+                    nom_cat3: 'Egg Sandwich',
+                    prix_cat3: '$30',
+                    description_cat3: 'Meat Ball, Mie',
+
+                    catego2: 'Breakfast',
+                    image4: '/static/img/breakfast-1.jpg',
+                    nom_cat4: 'Egg Sandwich',
+                    prix_cat4: '$30',
+                    description_cat4: 'Meat Ball, Mie',
+                   
+                    image5: '/static/img/breakfast-1.jpg',
+                    nom_cat5: 'Egg Sandwich',
+                    prix_cat5: '$30',
+                    description_cat5: 'Meat Ball, Mie',
+                    
+                    image6: '/static/img/breakfast-1.jpg',
+                    nom_cat6: 'Egg Sandwich',
+                    prix_cat6: '$30',
+                    description_cat6: 'Meat Ball, Mie',
+
+                    catego3: 'Breakfast',
+                    image7: '/static/img/breakfast-1.jpg',
+                    nom_cat7: 'Egg Sandwich',
+                    prix_cat7: '$30',
+                    description_cat7: 'Meat Ball, Mie',
+                    
+                    image8: '/static/img/breakfast-1.jpg',
+                    nom_cat8: 'Egg Sandwich',
+                    prix_cat8: '$30',
+                    description_cat8: 'Meat Ball, Mie',
+                    
+                    image9: '/static/img/breakfast-1.jpg',
+                    nom_cat9: 'Egg Sandwich',
+                    prix_cat9: '$30',
+                    description_cat9: 'Meat Ball, Mie',
+                }
+            })
+</script>
 {% endblock main %}
