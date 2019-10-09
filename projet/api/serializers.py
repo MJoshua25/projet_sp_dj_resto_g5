@@ -29,14 +29,14 @@ class PresentationSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
         model = Presentation
         fields = '__all__'
 
-class SocialSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
+class Social_entSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
     class Meta:
-        model = Social
+        model = Social_ent
         fields = '__all__'
 
 
 class PersonnelSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
-    presonnel_social = SocialSerializer(many=True, required=False)
+    presonnel_Social = Social_entSerializer(many=True, required=False)
     class Meta:
         model = Personnel
         fields = '__all__'

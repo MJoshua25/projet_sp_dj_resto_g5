@@ -50,10 +50,10 @@ class PersonnelAdmin(admin.ModelAdmin):
         'date_add',
         'date_update',
     )
-    raw_id_fields = ('social',)
+    # raw_id_fields = ('social',)
 
 
-class SocialAdmin(admin.ModelAdmin):
+class Social_entAdmin(admin.ModelAdmin):
 
     list_display = (
         'id',
@@ -76,4 +76,4 @@ def _register(model, admin_class):
 _register(models.Presentation, PresentationAdmin)
 _register(models.Poste, PosteAdmin)
 _register(models.Personnel, PersonnelAdmin)
-_register(models.Social, SocialAdmin)
+_register(models.Social_ent, Social_entAdmin)

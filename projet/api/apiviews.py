@@ -22,10 +22,10 @@ class PresentationViewSet(viewsets.ModelViewSet):
     queryset = Presentation.objects.all()
     serializer_class = PresentationSerializer
     
-class SocialViewSet(viewsets.ModelViewSet):
+class Social_entViewSet(viewsets.ModelViewSet):
     filter_backends = (DynamicSearchFilter,)
-    queryset = Social.objects.all()
-    serializer_class = SocialSerializer
+    queryset = Social_ent.objects.all()
+    serializer_class = Social_entSerializer
 
 class PersonnelViewSet(viewsets.ModelViewSet):
     filter_backends = (DynamicSearchFilter,)
