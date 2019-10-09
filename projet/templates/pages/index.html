@@ -1,5 +1,4 @@
 {% extends "bases/base.html" %}
-
 {% block main %}
 <div class="hero">
     <div class="container">
@@ -53,417 +52,128 @@
   </div>
 </div>		<!-- Welcome Section -->
 <section id="gtco-welcome" class="bg-white section-padding">
-    <div class="container">
-        <div class="section-content">
-            <div class="row">
-                <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2" style="background-image: url(/static/img/hero-2.jpg);">
-                    
-                </div>
-                <div class="col-sm-7 py-5 pl-md-0 pl-4">
-                    <div class="heading-section pl-lg-5 ml-md-5">
-                        <span class="subheading">
-                            About
-                        </span>
-                        <h2>
-                            Welcome to Resto
-                        </h2>
-                    </div>
-                    <div class="pl-lg-5 ml-md-5">
-                        <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                        <h3 class="mt-5">Special Recipe</h3>
-                        <div class="row">
-                            <div class="col-4">
-                                <a href="#" class="thumb-menu">
-                                    <img class="img-fluid img-cover" src="/static/img/hero-1.jpg" />
-                                    <h6>Australian Organic Beef</h6>
-                                </a>
-                            </div>
-                            <div class="col-4">
-                                <a href="#" class="thumb-menu">
-                                    <img class="img-fluid img-cover" src="/static/img/hero-1.jpg" />
-                                    <h6>Australian Organic Beef</h6>
-                                </a>
-                            </div>
-                            <div class="col-4">
-                                <a href="#" class="thumb-menu">
-                                    <img class="img-fluid img-cover" src="/static/img/hero-1.jpg"/>
-                                    <h6>Australian Organic Beef</h6>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <welcome-todo 
+    v-bind:image="image" 
+    v-bind:titre="titre"
+    v-bind:contenue="contenue"
+    v-bind:description="description"
+    v-bind:image1="image1"
+    v-bind:description1="description1" 
+    v-bind:image2="image2" 
+    v-bind:description2="description2" 
+    v-bind:image3="image3"
+    v-bind:description3="description3"></welcome-todo>
 </section>
 <!-- End of Welcome Section -->		<!-- Special Dishes Section -->
 <section id="gtco-special-dishes" class="bg-grey section-padding">
-    <div class="container">
-        <div class="section-content">
-            <div class="heading-section text-center">
-                <span class="subheading">
-                    Specialties
-                </span>
-                <h2>
-                    Special Dishes
-                </h2>
-            </div>
-            <div class="row mt-5">
-                <div class="col-lg-5 col-md-6 align-self-center py-5">
-                    <h2 class="special-number">01.</h2>
-                    <div class="dishes-text">
-                        <h3><span>Beef</span><br> Steak Sauce</h3>
-                        <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, ea vero alias perferendis quas animi doloribus voluptates. Atque explicabo ea nesciunt provident libero qui eum, corporis esse quos excepturi soluta?</p>
-                        <h3 class="special-dishes-price">$15.00</h3>
-                        <a href="#" class="btn-primary mt-3">book a table</a>
-                    </div>
-                </div>
-                <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center mt-4 mt-md-0">
-                    <img src="/static/img/steak.jpg" alt="" class="img-fluid shadow w-100">
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-lg-5 col-md-6 align-self-center order-2 order-md-1 mt-4 mt-md-0">
-                    <img src="/static/img/salmon-zucchini.jpg" alt="" class="img-fluid shadow w-100">
-                </div>
-                <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center order-1 order-md-2 py-5">
-                    <h2 class="special-number">02.</h2>
-                    <div class="dishes-text">
-                        <h3><span>Salmon</span><br> Zucchini</h3>
-                        <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, accusamus culpa quam amet ipsam odit ea doloremque accusantium quo, itaque possimus eius. In a quis quibusdam omnis atque vero dolores!</p>
-                        <h3 class="special-dishes-price">$12.00</h3>
-                        <a href="#" class="btn-primary mt-3">book a table <span><i class="fa fa-long-arrow-right"></i></span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <specialite-todo
+    v-bind:specialite="specialite" 
+    v-bind:titre_plat="titre_plat"
+    v-bind:numero1="numero1"
+    v-bind:image1="image1"
+    v-bind:titre_plat1="titre_plat1"
+    v-bind:titre_plat11="titre_plat11"
+    v-bind:description_plat1="description_plat1"
+    v-bind:prix_plat1="prix_plat1"
+    v-bind:bouton_plat1="bouton_plat1" 
+    v-bind:numero2="numero2"
+    v-bind:image2="image2"
+    v-bind:titre_plat2="titre_plat2"
+    v-bind:titre_plat22="titre_plat22"
+    v-bind:description_plat2="description_plat2"
+    v-bind:prix_plat2="prix_plat2"
+    v-bind:bouton_plat2="bouton_plat2" 
+    ></specialite-todo>
 </section>
 <!-- End of Special Dishes Section -->		<!-- Menu Section -->
 <section id="gtco-menu" class="section-padding">
-    <div class="container">
-        <div class="section-content">
-            <div class="row mb-5">
-                <div class="col-md-12">
-                    <div class="heading-section text-center">
-                        <span class="subheading">
-                            Specialties
-                        </span>
-                        <h2>
-                            Our Menu
-                        </h2>
-                    </div>  
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 menu-wrap">
-                    <div class="heading-menu">
-                        <h3 class="text-center mb-5">Breakfast</h3>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
-                                </div>
-                            </div>
-                            <p>Meat Ball, Mie</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
-                                </div>
-                            </div>
-                            <p>Meat Ball, Mie</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
-                                </div>
-                            </div>
-                            <p>Meat Ball, Mie</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 menu-wrap">
-                    <div class="heading-menu">
-                        <h3 class="text-center mb-5">Breakfast</h3>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
-                                </div>
-                            </div>
-                            <p>Meat Ball, Mie</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
-                                </div>
-                            </div>
-                            <p>Meat Ball, Mie</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
-                                </div>
-                            </div>
-                            <p>Meat Ball, Mie</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 menu-wrap">
-                    <div class="heading-menu">
-                        <h3 class="text-center mb-5">Breakfast</h3>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
-                                </div>
-                            </div>
-                            <p>Meat Ball, Mie</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
-                                </div>
-                            </div>
-                            <p>Meat Ball, Mie</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="/static/img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Egg Sandwich</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
-                                </div>
-                            </div>
-                            <p>Meat Ball, Mie</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <menu-todo 
+    v-bind:specialite="specialite"
+    v-bind:titre_menu="titre_menu"
+    v-bind:catego1="catego1"
+    v-bind:image1="image1"
+    v-bind:nom_cat1="nom_cat1"
+    v-bind:prix_cat1="prix_cat1"
+    v-bind:description_cat1="description_cat1"
+    v-bind:image2="image2"
+    v-bind:nom_cat2="nom_cat2"
+    v-bind:prix_cat2="prix_cat2"
+    v-bind:description_cat2="description_cat2"
+    v-bind:image3="image3"
+    v-bind:nom_cat3="nom_cat3"
+    v-bind:prix_cat3="prix_cat3"
+    v-bind:description_cat3="description_cat3"
+    v-bind:catego2= "catego2"
+    v-bind:image4="image4"
+    v-bind:nom_cat4="nom_cat4"
+    v-bind:prix_cat4="prix_cat4"
+    v-bind:description_cat4="description_cat4"
+    v-bind:image5="image5"
+    v-bind:nom_cat5="nom_cat5"
+    v-bind:prix_cat5="prix_cat5"
+    v-bind:description_cat5="description_cat5"
+    v-bind:image6="image6"
+    v-bind:nom_cat6="nom_cat6"
+    v-bind:prix_cat6="prix_cat6"
+    v-bind:description_cat6="description_cat6"
+    v-bind:catego3= "catego3"
+    v-bind:image7="image7"
+    v-bind:nom_cat7="nom_cat7"
+    v-bind:prix_cat7="prix_cat7"
+    v-bind:description_cat7="description_cat7"
+    v-bind:image8="image8"
+    v-bind:nom_cat8="nom_cat8"
+    v-bind:prix_cat8="prix_cat8"
+    v-bind:description_cat8="description_cat8"
+    v-bind:image9="image9"
+    v-bind:nom_cat9="nom_cat9"
+    v-bind:prix_cat9="prix_cat9"
+    v-bind:description_cat9="description_cat9"
+    ></menu-todo>
 </section>
 <!-- End of menu Section -->		<!-- Testimonial Section-->
 <section id="gtco-testimonial" class="overlay bg-fixed section-padding" style="background-image: url(/static/img/testi-bg.jpg);">
-    <div class="container">
-        <div class="section-content">
-            <div class="heading-section text-center">
-                <span class="subheading">
-                    Testimony
-                </span>
-                <h2>
-                    Happy Customer
-                </h2>
-            </div>
-            <div class="row">
-                <!-- Testimonial -->
-                <div class="testi-content testi-carousel owl-carousel">
-                    <div class="testi-item">
-                        <i class="testi-icon fa fa-3x fa-quote-left"></i>
-                        <p class="testi-text">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p class="testi-author">John Doe</p>
-                        <p class="testi-desc">CEO of <span>GetTemplates</span></p>
-                    </div>
-                    <div class="testi-item">
-                        <i class="testi-icon fa fa-3x fa-quote-left"></i>
-                        <p class="testi-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci non doloribus ut, alias doloremque perspiciatis.</p>
-                        <p class="testi-author">Mary Jane</p>
-                        <p class="testi-desc">CTO of <span>Unidentity Inc</span></p>
-                    </div>
-                </div>
-                <!-- End of Testimonial -->
-            </div>
-        </div>
-    </div>
+    <testimonial-todo
+    v-bind:testimony="testimony"
+    v-bind:titre="titre"
+    v-bind:description1="description1"
+    v-bind:auteur1="auteur1"
+    v-bind:fonction1="fonction1"
+    v-bind:fonction11="fonction11"
+    v-bind:description2="description2"
+    v-bind:auteur2="auteur2"
+    v-bind:fonction2="fonction2"
+    v-bind:fonction22="fonction22"
+    ></testimonial-todo>
 </section>
 <!-- End of Testimonial Section-->		<!-- Team Section -->
 <section id="gtco-team" class="bg-white section-padding">
-    <div class="container">
-        <div class="section-content">
-            <div class="heading-section text-center">
-                <span class="subheading">
-                    Specialties
-                </span>
-                <h2>
-                    Our Team
-                </h2>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="team-card mb-5">
-                        <img class="img-fluid" src="/static/img/chef-1.jpg" alt="">
-                        <div class="team-desc">
-                            <h4 class="mb-0">Aaron Patel</h4>
-                            <p class="mb-1">CEO</p>
-                            <ul class="list-inline mb-0 team-social-links">
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-google-plus-g"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team-card mb-5">
-                        <img class="img-fluid" src="/static/img/chef-2.jpg" alt="">
-                        <div class="team-desc">
-                            <h4 class="mb-0">Daniel Tebas</h4>
-                            <p class="mb-1">Chef</p>
-                            <ul class="list-inline mb-0 team-social-links">
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-google-plus-g"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team-card mb-5">
-                        <img class="img-fluid" src="/static/img/chef-3.jpg" alt="">
-                        <div class="team-desc">
-                            <h4 class="mb-0">Jon Snow</h4>
-                            <p class="mb-1">Chef</p>
-                            <ul class="list-inline mb-0 team-social-links">
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-google-plus-g"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <teams-todo 
+    v-bind:specialite="specialite"
+    v-bind:titre_team="titre_team"
+    v-bind:image1="image1"
+    v-bind:nom1="nom1"
+    v-bind:fonction1="fonction1"
+    v-bind:fb1="fb1"
+    v-bind:tweet1="tweet1"
+    v-bind:instagram1="instagram1"
+    v-bind:google1="google1"
+    v-bind:image2="image2"
+    v-bind:nom2="nom2"
+    v-bind:fonction2="fonction2"
+    v-bind:fb2="fb2"
+    v-bind:tweet2="tweet2"
+    v-bind:instagram2="instagram2"
+    v-bind:google2="google2"
+    v-bind:image3="image3"
+    v-bind:nom3="nom3"
+    v-bind:fonction3="fonction3"
+    v-bind:fb3="fb3"
+    v-bind:tweet3="tweet3"
+    v-bind:instagram3="instagram3"
+    v-bind:google3="google3"
+
+    ></teams-todo>
 </section>
 <!-- End of Team Section -->		<!-- Reservation Section -->
 <section id="gtco-reservation" class="bg-fixed bg-white section-padding overlay" style="background-image: url(/static/img/reservation-bg.jpg);">
@@ -538,4 +248,589 @@
     </div>
 </section>
 <!-- End of Reservation Section -->	
+
+
+
+<script>
+    Vue.component('welcome-todo', 
+                {
+                    props: ['image', 'titre', 'contenue', 'description', 'image1', 'description1', 'image2', 'description2', 'image3', 'description3'],
+                    template: `
+                    <div class="container">
+        <div class="section-content">
+            <div class="row">
+                <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2" style="background-image: url({{ image }}">
+                    
+                </div>
+                <div class="col-sm-7 py-5 pl-md-0 pl-4">
+                    <div class="heading-section pl-lg-5 ml-md-5">
+                        <span class="subheading">
+                            About
+                        </span>
+                        <h2>
+                            {{ titre }}
+                        </h2>
+                    </div>
+                    <div class="pl-lg-5 ml-md-5">
+                        <p>{{ contenue }}</p>
+                        <h3 class="mt-5">{{ description }}</h3>
+                        <div class="row">
+                            <div class="col-4">
+                                <a href="#" class="thumb-menu">
+                                    <img class="img-fluid img-cover" src="{{ image1 }}" />
+                                    <h6>{{ description1 }}</h6>
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="#" class="thumb-menu">
+                                    <img class="img-fluid img-cover" src="{{ image2 }}" />
+                                    <h6>description2</h6>
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="#" class="thumb-menu">
+                                    <img class="img-fluid img-cover" src="{{ image3 }}"/>
+                                    <h6>{{ description3 }}</h6>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                    `
+                })
+            
+            var welcome = new Vue({
+                el: '#gtco-welcome',
+                data: {
+                    image: '/static/img/hero-2.jpg',
+                    titre: 'Welcome to Resto',
+                    contenue: 'On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.',
+                    description: 'Special Recipe',
+                    image1: '/static/img/hero-1.jpg',
+                    description1: 'Australian Organic Beef',
+                    image2: '/static/img/hero-1.jpg',
+                    description2: 'Australian Organic Beef',
+                    image3: '/static/img/hero-1.jpg',
+                    description3: 'Australian Organic Beef',
+                }
+            })
+
+
+    Vue.component('specialite-todo', 
+                {
+                    props: ['specialite', 'titre_plat', 'numero1', 'image1', 'titre_plat1', 'titre_plat11', 'description_plat1', 'prix_plat1', 'bouton_plat1', 'numero2', 'titre_plat2', 'titre_plat22', 'description_plat2', 'prix_plat2', 'bouton_plat2'],
+                    template: `
+                        <div class="container">
+        <div class="section-content">
+            <div class="heading-section text-center">
+                <span class="subheading">
+                    {{specialite}}
+                </span>
+                <h2>
+                    {{titre_plat}}
+                </h2>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-5 col-md-6 align-self-center py-5">
+                    <h2 class="special-number">{{numero1}}.</h2>
+                    <div class="dishes-text">
+                        <h3><span>{{titre_plat1}}</span><br> {{titre_plat11}}</h3>
+                        <p class="pt-3">{{description_plat1}}</p>
+                        <h3 class="special-dishes-price">{{prix_plat1}}</h3>
+                        <a href="#" class="btn-primary mt-3">{{bouton_plat1}}</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center mt-4 mt-md-0">
+                    <img src="{{image1}}" alt="" class="img-fluid shadow w-100">
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-5 col-md-6 align-self-center order-2 order-md-1 mt-4 mt-md-0">
+                    <img src="{{image2}}" alt="" class="img-fluid shadow w-100">
+                </div>
+                <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center order-1 order-md-2 py-5">
+                    <h2 class="special-number">{{numero2}}.</h2>
+                    <div class="dishes-text">
+                        <h3><span>{{titre_plat2}}</span><br> {{titre_plat22}}</h3>
+                        <p class="pt-3">{{description_plat2}}</p>
+                        <h3 class="special-dishes-price">$12.00</h3>
+                        <a href="#" class="btn-primary mt-3">{{bouton_plat2}} <span><i class="fa fa-long-arrow-right"></i></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                    `
+                })
+            
+            var special = new Vue({
+                el: '#gtco-special-dishes',
+                data: {
+                    specialite: 'Specialties',
+                    titre_plat: 'Special Dishes',
+                    numero1: '01',
+                    image1: '/static/img/steak.jpg',
+                    titre_plat1: 'Beef',
+                    titre_plat11: 'Steak Sauce',
+                    description_plat1: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, ea vero alias perferendis quas animi doloribus voluptates. Atque explicabo ea nesciunt provident libero qui eum, corporis esse quos excepturi soluta?',
+                    prix_plat1: '$15.00',
+                    bouton_plat1: 'book a table',
+                    numero2: '02',
+                    image2: '/static/img/salmon-zucchini.jpg',
+                    titre_plat2: 'Salmon',
+                    titre_plat22: 'Zucchini',
+                    description_plat2: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, accusamus culpa quam amet ipsam odit ea doloremque accusantium quo, itaque possimus eius. In a quis quibusdam omnis atque vero dolores!',
+                    prix_plat2: '$12.00',
+                    bouton_plat2: 'book a table',
+                }
+            })
+
+
+
+    Vue.component('menu-todo', 
+                {
+                    props: ['specialite', 'titre_menu', 'catego1', 'image1', 'nom_cat1', 'prix_cat1', 'description_cat1', 'image2', 'nom_cat2', 'prix_cat2', 'description_cat2', 'image3', 'nom_cat3', 'prix_cat3', 'description_cat3', 'catego2', 'image4', 'nom_cat4', 'prix_cat4', 'description_cat4', 'image5', 'nom_cat5', 'prix_cat5', 'description_cat5', 'image6', 'nom_cat6', 'prix_cat6', 'description_cat6', 'catego3', 'image7', 'nom_cat7', 'prix_cat7', 'description_cat7', 'image8', 'nom_cat8', 'prix_cat8', 'description_cat8', 'image9', 'nom_cat9', 'prix_cat9', 'description_cat9'],
+                    template: `
+                        <div class="container">
+        <div class="section-content">
+            <div class="row mb-5">
+                <div class="col-md-12">
+                    <div class="heading-section text-center">
+                        <span class="subheading">
+                            {{specialite}}
+                        </span>
+                        <h2>
+                            {{titre_menu}}
+                        </h2>
+                    </div>  
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 menu-wrap">
+                    <div class="heading-menu">
+                        <h3 class="text-center mb-5">{{ catego1 }}</h3>
+                    </div>
+                    <div class="menus d-flex align-items-center">
+                        <div class="menu-img rounded-circle">
+                            <img class="img-fluid" src="{{ image1 }}" alt="">
+                        </div>
+                        <div class="text-wrap">
+                            <div class="row align-items-start">
+                                <div class="col-8">
+                                    <h4>{{ nom_cat1 }}</h4>
+                                </div>
+                                <div class="col-4">
+                                    <h4 class="text-muted menu-price">{{ prix_cat1 }}</h4>
+                                </div>
+                            </div>
+                            <p>{{ description_cat1 }}</p>
+                        </div>
+                    </div>
+                    <div class="menus d-flex align-items-center">
+                        <div class="menu-img rounded-circle">
+                            <img class="img-fluid" src="{{ image2 }}" alt="">
+                        </div>
+                        <div class="text-wrap">
+                            <div class="row align-items-start">
+                                <div class="col-8">
+                                    <h4>{{ nom_cat2 }}</h4>
+                                </div>
+                                <div class="col-4">
+                                    <h4 class="text-muted menu-price">{{ prix_cat2 }}</h4>
+                                </div>
+                            </div>
+                            <p>{{ description_cat2 }}</p>
+                        </div>
+                    </div>
+                    <div class="menus d-flex align-items-center">
+                        <div class="menu-img rounded-circle">
+                            <img class="img-fluid" src="{{ image3 }}" alt="">
+                        </div>
+                        <div class="text-wrap">
+                            <div class="row align-items-start">
+                                <div class="col-8">
+                                    <h4>{{ nom_cat3 }}</h4>
+                                </div>
+                                <div class="col-4">
+                                    <h4 class="text-muted menu-price">{{ prix_cat3 }}</h4>
+                                </div>
+                            </div>
+                            <p>{{ description_cat3 }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 menu-wrap">
+                    <div class="heading-menu">
+                        <h3 class="text-center mb-5">{{ catego2 }}</h3>
+                    </div>
+                    <div class="menus d-flex align-items-center">
+                        <div class="menu-img rounded-circle">
+                            <img class="img-fluid" src="{{ image4 }}" alt="">
+                        </div>
+                        <div class="text-wrap">
+                            <div class="row align-items-start">
+                                <div class="col-8">
+                                    <h4>{{ nom_cat4 }}</h4>
+                                </div>
+                                <div class="col-4">
+                                    <h4 class="text-muted menu-price">{{ prix_cat4 }}</h4>
+                                </div>
+                            </div>
+                            <p>{{ description_cat4 }}</p>
+                        </div>
+                    </div>
+                    <div class="menus d-flex align-items-center">
+                        <div class="menu-img rounded-circle">
+                            <img class="img-fluid" src="{{ image5 }}" alt="">
+                        </div>
+                        <div class="text-wrap">
+                            <div class="row align-items-start">
+                                <div class="col-8">
+                                    <h4>{{ nom_cat5 }}</h4>
+                                </div>
+                                <div class="col-4">
+                                    <h4 class="text-muted menu-price">{{ prix_cat5 }}</h4>
+                                </div>
+                            </div>
+                            <p>{{ description_cat5 }}</p>
+                        </div>
+                    </div>
+                    <div class="menus d-flex align-items-center">
+                        <div class="menu-img rounded-circle">
+                            <img class="img-fluid" src="{{ image6 }}" alt="">
+                        </div>
+                        <div class="text-wrap">
+                            <div class="row align-items-start">
+                                <div class="col-8">
+                                    <h4>{{ nom_cat6 }}</h4>
+                                </div>
+                                <div class="col-4">
+                                    <h4 class="text-muted menu-price">{{ prix_cat6 }}</h4>
+                                </div>
+                            </div>
+                            <p>{{ description_cat6 }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 menu-wrap">
+                    <div class="heading-menu">
+                        <h3 class="text-center mb-5">{{ catego3 }}</h3>
+                    </div>
+                    <div class="menus d-flex align-items-center">
+                        <div class="menu-img rounded-circle">
+                            <img class="img-fluid" src="{{ image7 }}" alt="">
+                        </div>
+                        <div class="text-wrap">
+                            <div class="row align-items-start">
+                                <div class="col-8">
+                                    <h4>{{ nom_cat7 }}</h4>
+                                </div>
+                                <div class="col-4">
+                                    <h4 class="text-muted menu-price">{{ prix_cat7 }}</h4>
+                                </div>
+                            </div>
+                            <p>{{ description_cat7 }}</p>
+                        </div>
+                    </div>
+                    <div class="menus d-flex align-items-center">
+                        <div class="menu-img rounded-circle">
+                            <img class="img-fluid" src="{{ image8 }}" alt="">
+                        </div>
+                        <div class="text-wrap">
+                            <div class="row align-items-start">
+                                <div class="col-8">
+                                    <h4>{{ nom_cat8 }}</h4>
+                                </div>
+                                <div class="col-4">
+                                    <h4 class="text-muted menu-price">{{ prix_cat8 }}</h4>
+                                </div>
+                            </div>
+                            <p>{{ description_cat8 }}</p>
+                        </div>
+                    </div>
+                    <div class="menus d-flex align-items-center">
+                        <div class="menu-img rounded-circle">
+                            <img class="img-fluid" src="{{ image9 }}" alt="">
+                        </div>
+                        <div class="text-wrap">
+                            <div class="row align-items-start">
+                                <div class="col-8">
+                                    <h4>{{ nom_cat9 }}</h4>
+                                </div>
+                                <div class="col-4">
+                                    <h4 class="text-muted menu-price">{{ prix_cat9 }}</h4>
+                                </div>
+                            </div>
+                            <p>{{ description_cat9 }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                    `
+                })
+            
+            var menu = new Vue({
+                el: '#gtco-menu',
+                data: {
+                    specialite: 'Specialites',
+                    titre_menu: 'Our Menu',
+                    catego1: 'Breakfast',
+                    image1: '/static/img/breakfast-1.jpg',
+                    nom_cat1: 'Egg Sandwich',
+                    prix_cat1: '$30',
+                    description_cat1: 'Meat Ball, Mie',
+                    
+                    image2: '/static/img/breakfast-1.jpg',
+                    nom_cat2: 'Egg Sandwich',
+                    prix_cat2: '$30',
+                    description_cat2: 'Meat Ball, Mie',
+                    
+                    image3: '/static/img/breakfast-1.jpg',
+                    nom_cat3: 'Egg Sandwich',
+                    prix_cat3: '$30',
+                    description_cat3: 'Meat Ball, Mie',
+
+                    catego2: 'Breakfast',
+                    image4: '/static/img/breakfast-1.jpg',
+                    nom_cat4: 'Egg Sandwich',
+                    prix_cat4: '$30',
+                    description_cat4: 'Meat Ball, Mie',
+                   
+                    image5: '/static/img/breakfast-1.jpg',
+                    nom_cat5: 'Egg Sandwich',
+                    prix_cat5: '$30',
+                    description_cat5: 'Meat Ball, Mie',
+                    
+                    image6: '/static/img/breakfast-1.jpg',
+                    nom_cat6: 'Egg Sandwich',
+                    prix_cat6: '$30',
+                    description_cat6: 'Meat Ball, Mie',
+
+                    catego3: 'Breakfast',
+                    image7: '/static/img/breakfast-1.jpg',
+                    nom_cat7: 'Egg Sandwich',
+                    prix_cat7: '$30',
+                    description_cat7: 'Meat Ball, Mie',
+                    
+                    image8: '/static/img/breakfast-1.jpg',
+                    nom_cat8: 'Egg Sandwich',
+                    prix_cat8: '$30',
+                    description_cat8: 'Meat Ball, Mie',
+                    
+                    image9: '/static/img/breakfast-1.jpg',
+                    nom_cat9: 'Egg Sandwich',
+                    prix_cat9: '$30',
+                    description_cat9: 'Meat Ball, Mie',
+                }
+            })
+
+
+
+    Vue.component('testimonial-todo', 
+                {
+                    props: ['testimony', 'titre', 'description1', 'auteur1', 'fonction1', 'fonction11', 'description2', 'auteur2', 'fonction2', 'fonction22'],
+                    template: `
+                        <div class="container">
+        <div class="section-content">
+            <div class="heading-section text-center">
+                <span class="subheading">
+                    {{ testimony }}
+                </span>
+                <h2>
+                    {{ titre }}
+                </h2>
+            </div>
+            <div class="row">
+                <!-- Testimonial -->
+                <div class="testi-content testi-carousel owl-carousel">
+                    <div class="testi-item">
+                        <i class="testi-icon fa fa-3x fa-quote-left"></i>
+                        <p class="testi-text">{{ description1 }}</p>
+                        <p class="testi-author">{{ auteur1 }}</p>
+                        <p class="testi-desc">{{ fonction1 }} <span>{{ fonction11 }}</span></p>
+                    </div>
+                    <div class="testi-item">
+                        <i class="testi-icon fa fa-3x fa-quote-left"></i>
+                        <p class="testi-text">{{ description2 }}</p>
+                        <p class="testi-author">{{ auteur2 }}</p>
+                        <p class="testi-desc">{{ fonction2 }} <span>{{ fonction22 }}</span></p>
+                    </div>
+                </div>
+                <!-- End of Testimonial -->
+            </div>
+        </div>
+    </div>
+                    `
+                })
+            
+            var testimoni = new Vue({
+                el: '#gtco-testimonial',
+                data: {
+                    testimony: 'Testimony',
+                    titre: 'Happy Customer',
+                    description1: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    auteur1: 'John Doe',
+                    fonction1: 'CEO of',
+                    fonction11: 'GetTemplates',
+                    description2: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci non doloribus ut, alias doloremque perspiciatis.',
+                    auteur2: 'Mary Jane',
+                    fonction2: 'CTO of',
+                    fonction22: 'Unidentity Inc',
+                    
+                }
+            })
+
+
+    
+    Vue.component('teams-todo', 
+                {
+                    props: ['specialite', 'titre_team', 'image1', 'nom1', 'fonction1', 'fb1', 'tweet1', 'instagram1', 'google1', 'image2', 'nom2', 'fonction2', 'fb2', 'tweet2', 'instagram2', 'google2', 'image3', 'nom3', 'fonction3', 'fb3', 'tweet3', 'instagram3', 'google3'],
+                    template: `
+                        <div class="container">
+        <div class="section-content">
+            <div class="heading-section text-center">
+                <span class="subheading">
+                    {{ specialite }}
+                </span>
+                <h2>
+                    {{ titre_team }}
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="team-card mb-5">
+                        <img class="img-fluid" src="{{ image1 }}" alt="">
+                        <div class="team-desc">
+                            <h4 class="mb-0">{{ nom1 }}</h4>
+                            <p class="mb-1">{{ fonction1 }}</p>
+                            <ul class="list-inline mb-0 team-social-links">
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="{{fb1}}"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="{{tweet1}}"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="{{instagram1}}"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="{{ google1 }}"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-card mb-5">
+                        <img class="img-fluid" src="{{ image2 }}" alt="">
+                        <div class="team-desc">
+                            <h4 class="mb-0">{{ nom2 }}</h4>
+                            <p class="mb-1">{{ fonction2 }}</p>
+                            <ul class="list-inline mb-0 team-social-links">
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="{{ fb2 }}"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="{{ tweet2 }}"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="{{ instagram2 }}"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="{{ google2 }}"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-card mb-5">
+                        <img class="img-fluid" src="{{ image3 }}" alt="">
+                        <div class="team-desc">
+                            <h4 class="mb-0">{{ nom3 }}</h4>
+                            <p class="mb-1">{{ fonction3 }}</p>
+                            <ul class="list-inline mb-0 team-social-links">
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="{{ fb3 }}"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="{{ tweet3 }}"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="{{ instagram3 }}"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="{{ google3 }}"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`
+                })
+    )
+
+    var teams= new Vue({
+                el: '#gtco-team',
+                data: {
+                    specialite: 'Specialties',
+                    titre_team: 'Our Team',
+                    image1: '/static/img/chef-1.jpg',
+                    nom1: 'Aaron Patel',
+                    fonction1: 'CEO',
+                    fb1: 'fab fa-facebook-f',
+                    tweet1: 'fab fa-twitter',
+                    instagram1: 'fab fa-instagram',
+                    google1: 'fab fa-google-plus-g',
+                    image2: '/static/img/chef-2.jpg',
+                    nom2: 'Daniel Tebas',
+                    fonction2: 'Chef',
+                    fb2: 'fab fa-facebook-f',
+                    tweet2: 'fab fa-twitter',
+                    instagram2: 'fab fa-instagram',
+                    google2: 'fab fa-google-plus-g',
+                    image3: '/static/img/chef-3.jpg',
+                    nom3: 'Jon Snows',
+                    fonction3: 'Chef',
+                    fb3: 'fab fa-facebook-f',
+                    tweet3: 'fab fa-twitter',
+                    instagram3: 'fab fa-instagram',
+                    google3: 'fab fa-google-plus-g',    
+                }
+    })
+
+</script>
 {% endblock main %}
