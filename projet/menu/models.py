@@ -2,18 +2,7 @@ from django.db import models
 from configuration.models import *
 
 # Create your models here.
-class Menu(Timemodels):
-    nom =  models.CharField(max_length=255)
-    jour = DayOfTheWeekField(unique="True")
-    plats = models.ManyToManyField('Plat',related_name='menu_plat')
-        
-    def __str__(self):
-        
-        return self.nom
-        
-    class Meta:
-        verbose_name = 'menu'
-        verbose_name_plural = 'menu du jour'
+
 
 class Category(Timemodels):
     nom =  models.CharField(max_length=255)
@@ -39,7 +28,7 @@ class Ingredient(Timemodels):
             
             
 class Plat(Timemodels):
-    categorie = models.ForeignKey(Category, on_delete=models.CASCADE,related_name="menu_plat")
+    categorie = models.ForeignKey(Category, on_delete=models.CASCADE,related_name="categorie_plat")
     nom = models.CharField(max_length=160)
     description = models.TextField(null=True)
     prix = models.FloatField()
@@ -53,3 +42,18 @@ class Plat(Timemodels):
 
         verbose_name = 'Plat'
         verbose_name_plural = 'Plats'
+        
+class Menu(Timemodels):
+    nom =  models.CharField(max_length=255)
+    jour = DayOfTheWeekField(unique="True")
+    plats = models.ManyToManyField(Plat,related_name='menu_plat')
+        
+    def __str__(self):
+        
+        return self.nom
+        
+    class Meta:
+        verbose_name = 'menu'
+        verbose_name_plural = 'menu du jour'
+        
+        

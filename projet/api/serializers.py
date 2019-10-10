@@ -61,17 +61,19 @@ class PlatSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CategorySerializer(DynamicFieldsMixin, serializers.ModelSerializer):
-    menu_plat = PlatSerializer(many=True, required=False)
-    class Meta:
-        model = Category
-        fields = '__all__'
 
 class IngredientSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
     ingrediant_plat = PlatSerializer(many=True, required=False)
     class Meta:
         model = Ingredient
         fields = '__all__'
+        
+class CategorySerializer(DynamicFieldsMixin, serializers.ModelSerializer):
+    categorie_plat = PlatSerializer(many=True, required=False)
+    class Meta:
+        model = Category
+        fields = '__all__'
+
 
 
 ###################### SERIALIZERS DE RESERVATION ######################
