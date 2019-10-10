@@ -20,7 +20,7 @@ Vue.component('special-item-1', {
                     <h3><span>`+"${ plat.nom }"+`</span><br>`+"${ plat.ingredient }"+`</h3>
                     <p class="pt-3">`+"${ plat.description }"+`</p>
                     <h3 class="special-dishes-price">$`+"${ plat.prix }"+`</h3>
-                    <a href="#" class="btn-primary mt-3">book a table</a>
+                    <a href="../reservation" class="btn-primary mt-3">book a table</a>
                 </div>
             </div>
             <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center mt-4 mt-md-0">
@@ -37,7 +37,7 @@ Vue.component('special-item-1', {
                 <h3><span>`+"${ plat.nom }"+`</span><br>`+"${ plat.ingredient }"+`</h3>
                 <p class="pt-3">`+"${ plat.description }"+`</p>
                 <h3 class="special-dishes-price">$`+"${ plat.prix }"+`</h3>
-                <a href="#" class="btn-primary mt-3">book a table</a>
+                <a href="../reservation" class="btn-primary mt-3">book a table</a>
                 </div>
             </div>
         </div>
@@ -214,3 +214,76 @@ var testimonial = new Vue({
 
 
 // Fin Vue.js pour testimonial
+
+
+// Début Vue.js pour team
+
+
+Vue.component('team-item', {
+    props: ['team'],
+    template: `
+    <div class="col-md-4">
+        <div class="team-card mb-5">
+            <img class="img-fluid" v-bind:src="`+ "team.photo" + `" alt="">
+            <div class="team-desc">
+                <h4 class="mb-0">`+"${ team.prenom } ${ team.nom }"+`</h4>
+                <p class="mb-1">`+"${ team.poste }"+`</p>
+                <ul class="list-inline mb-0 team-social-links">
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fab fa-google-plus-g"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    `,
+    delimiters: ["${","}"],
+})
+
+
+var team = new Vue({
+    el: '#gtco-team',
+    data: {
+        loader: true,
+        content:false,
+        teams:[],
+    },
+    delimiters: ["${","}"],
+    mounted(){
+        this.get_teams()
+    },
+    methods: {
+        get_teams: function(){
+            axios.get('http://127.0.0.1:8000/api/personnel/')
+                .then(response => {
+                    console.log(response.data)
+                    this.loader=false
+                    this.teams=response.data
+                    this.content=true
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
+    }
+})
+
+
+// Fin Vue.js pour team

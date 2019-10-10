@@ -1,93 +1,21 @@
 {% extends "bases/base.html" %}
 {% block main %}
-<section id="gtco-special-dishes" class="bg-grey section-padding">
-    <specialite-todo
-    v-bind:specialite="specialite" 
-    v-bind:titre_plat="titre_plat"
-    v-bind:numero1="numero1"
-    v-bind:image1="image1"
-    v-bind:titre_plat1="titre_plat1"
-    v-bind:titre_plat11="titre_plat11"
-    v-bind:description_plat1="description_plat1"
-    v-bind:prix_plat1="prix_plat1"
-    v-bind:bouton_plat1="bouton_plat1" 
-    v-bind:numero2="numero2"
-    v-bind:image2="image2"
-    v-bind:titre_plat2="titre_plat2"
-    v-bind:titre_plat22="titre_plat22"
-    v-bind:description_plat2="description_plat2"
-    v-bind:prix_plat2="prix_plat2"
-    v-bind:bouton_plat2="bouton_plat2" 
-    ></specialite-todo>
-</section>
-<script>
-    Vue.component('specialite-todo', 
-                {
-                    props: ['specialite', 'titre_plat', 'numero1', 'image1', 'titre_plat1', 'titre_plat11', 'description_plat1', 'prix_plat1', 'bouton_plat1', 'numero2', 'titre_plat2', 'titre_plat22', 'description_plat2', 'prix_plat2', 'bouton_plat2'],
-                    template: `
-                        <div class="container">
-        <div class="section-content">
-            <div class="heading-section text-center">
-                <span class="subheading">
-                    {{specialite}}
-                </span>
-                <h2>
-                    {{titre_plat}}
-                </h2>
-            </div>
-            <div class="row mt-5">
-                <div class="col-lg-5 col-md-6 align-self-center py-5">
-                    <h2 class="special-number">{{numero1}}.</h2>
-                    <div class="dishes-text">
-                        <h3><span>{{titre_plat1}}</span><br> {{titre_plat11}}</h3>
-                        <p class="pt-3">{{description_plat1}}</p>
-                        <h3 class="special-dishes-price">{{prix_plat1}}</h3>
-                        <a href="#" class="btn-primary mt-3">{{bouton_plat1}}</a>
-                    </div>
+<!-- Special Dishes Section -->
+    <section id="gtco-special-dishes" class="bg-grey section-padding">
+        <div class="container">
+            <div class="section-content">
+                <div class="heading-section text-center">
+                    <span class="subheading">
+                        Specialties
+                    </span>
+                    <h2>
+                        Special Dishes
+                    </h2>
                 </div>
-                <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center mt-4 mt-md-0">
-                    <img src="{{image1}}" alt="" class="img-fluid shadow w-100">
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-lg-5 col-md-6 align-self-center order-2 order-md-1 mt-4 mt-md-0">
-                    <img src="{{image2}}" alt="" class="img-fluid shadow w-100">
-                </div>
-                <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center order-1 order-md-2 py-5">
-                    <h2 class="special-number">{{numero2}}.</h2>
-                    <div class="dishes-text">
-                        <h3><span>{{titre_plat2}}</span><br> {{titre_plat22}}</h3>
-                        <p class="pt-3">{{description_plat2}}</p>
-                        <h3 class="special-dishes-price">$12.00</h3>
-                        <a href="#" class="btn-primary mt-3">{{bouton_plat2}} <span><i class="fa fa-long-arrow-right"></i></span></a>
-                    </div>
-                </div>
+                <span v-if="loader" class="sr-only">Loading...</span>
+                <special-item-1 v-if="content" v-for="(plat, index) in plats" v-bind:plat="plat" v-bind:index="index"  v-bind:key="plat.id"></special-item-1>
             </div>
         </div>
-    </div>
-                    `
-                })
-            
-            var special = new Vue({
-                el: '#gtco-special-dishes',
-                data: {
-                    specialite: 'Specialties',
-                    titre_plat: 'Special Dishes',
-                    numero1: '01',
-                    image1: '/static/img/steak.jpg',
-                    titre_plat1: 'Beef',
-                    titre_plat11: 'Steak Sauce',
-                    description_plat1: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, ea vero alias perferendis quas animi doloribus voluptates. Atque explicabo ea nesciunt provident libero qui eum, corporis esse quos excepturi soluta?',
-                    prix_plat1: '$15.00',
-                    bouton_plat1: 'book a table',
-                    numero2: '02',
-                    image2: '/static/img/salmon-zucchini.jpg',
-                    titre_plat2: 'Salmon',
-                    titre_plat22: 'Zucchini',
-                    description_plat2: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, accusamus culpa quam amet ipsam odit ea doloremque accusantium quo, itaque possimus eius. In a quis quibusdam omnis atque vero dolores!',
-                    prix_plat2: '$12.00',
-                    bouton_plat2: 'book a table',
-                }
-            })
-</script>
+    </section>
+    <!-- End of Special Dishes Section -->
 {% endblock main %}
