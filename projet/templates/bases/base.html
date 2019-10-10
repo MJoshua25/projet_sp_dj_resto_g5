@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="/static/css/style.min.css">
 
     <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
+	
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
 </head>
@@ -117,6 +118,9 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="{% url 'reservation'%}">Reservation</a>
+                    </li>
+					<li class="nav-item dropdown">
+                        <a class="nav-link" href="{% url 'contact'%}">Contact</a>
                     </li>
                 </div>
                 <li class="nav-item">
@@ -208,6 +212,11 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
 
 	<!-- Main JS -->
-	<script src="/static/js/app.min.js "></script>
+	<script src="/static/js/app.min.js"></script>
+	<script src="/static/js/axios.min.js"></script>
+
+	<!-- Vue js -->
+	<script src="/static/js/vue.js"></script>
+	<script src="/static/js/component.js"></script>
 </body>
 </html>

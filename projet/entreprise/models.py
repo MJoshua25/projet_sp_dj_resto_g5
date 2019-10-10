@@ -45,26 +45,24 @@ class Poste(Timemodels):
         verbose_name_plural = 'Postes'
 
 class Personnel(Timemodels):
-    
     nom = models.CharField(max_length=160)
     prenom = models.CharField(max_length=160)
     photo = models.ImageField(upload_to='photo_presonnel')
     poste = models.ForeignKey(Poste, on_delete=models.CASCADE,related_name="poste_presonnel")
 
-        
     def __str__(self):
         return self.nom+ " " + self.prenom
 
     class Meta:
         verbose_name = 'Cuisinier'
         verbose_name_plural = 'Cuisiniers'
-            
+
+
 class Social_ent(Timemodels):
         # TODO: Define fields here
     icon = models.ForeignKey(Social, on_delete=models.CASCADE,related_name="social_icon")
     personnel = models.ForeignKey('Personnel', on_delete=models.CASCADE,related_name="personnel_social")
     lien = models.URLField(max_length=200)
-        
+
     def __str__(self):
         return '{}'.format(self.personnel)
-    

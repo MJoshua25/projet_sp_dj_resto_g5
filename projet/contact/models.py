@@ -9,20 +9,19 @@ class Message(Timemodels):
     email = models.EmailField()
     message = models.TextField()
 
-
-    # TODO: Define fields here
-
     class Meta:
         """Meta definition for Message."""
 
         verbose_name = 'Message'
         verbose_name_plural = 'Messages'
-            
+
+
 class Newsletter(Timemodels):
     email = models.EmailField()
-    def __str__(self):
-        return self.email
 
     class Meta:
         verbose_name = 'Newsletter'
         verbose_name_plural = 'Newsletters'
+
+    def __str__(self):
+        return self.email
