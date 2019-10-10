@@ -1,6 +1,6 @@
 {% extends "bases/base.html" %}
 {% block main %}
-<div class="hero">
+<div class="hero" id="app">
     <div class="container">
 	<div class="row d-flex align-items-center">
 		<div class="col-lg-6 hero-left">
@@ -131,7 +131,7 @@
             </div>
             <div class="row">
                 <span v-if="loader" class="sr-only">Loading...</span>
-                <category-menu-item v-if="content" v-for="category in menu.categorys" v-bind:category="category" v-bind:key="category.id"></category-menu-item>
+                <category-menu-item v-if="content" v-for="category in categorys" v-bind:category="category" v-bind:key="category.id"></category-menu-item>
             </div>
         </div>
     </div>

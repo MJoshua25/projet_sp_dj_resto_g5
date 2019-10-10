@@ -17,7 +17,7 @@ Vue.component('special-item-1', {
             <div class="col-lg-5 col-md-6 align-self-center py-5">
                 <h2 class="special-number">`+"${ index + 1 }."+`</h2>
                 <div class="dishes-text">
-                    <h3><span>`+"${ plat.nom }"+`</span><br>`+"${ plat.ingredient }"+`</h3>
+                    <h3><span>`+"${ plat.nom }"+`</span><br><span v-for="ig in plat.ingredient">`+"${ ig.nom } "+`</span> </h3>
                     <p class="pt-3">`+"${ plat.description }"+`</p>
                     <h3 class="special-dishes-price">$`+"${ plat.prix }"+`</h3>
                     <a href="../reservation" class="btn-primary mt-3">book a table</a>
@@ -34,7 +34,7 @@ Vue.component('special-item-1', {
             <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center order-1 order-md-2 py-5">
                 <h2 class="special-number">`+"${ index + 1 }."+`</h2>
                 <div class="dishes-text">
-                <h3><span>`+"${ plat.nom }"+`</span><br>`+"${ plat.ingredient }"+`</h3>
+                <h3><span>`+"${ plat.nom }"+`</span><br><span v-for="ig in plat.ingredient">`+"${ ig.nom } "+`</span> </h3>
                 <p class="pt-3">`+"${ plat.description }"+`</p>
                 <h3 class="special-dishes-price">$`+"${ plat.prix }"+`</h3>
                 <a href="../reservation" class="btn-primary mt-3">book a table</a>
@@ -45,26 +45,7 @@ Vue.component('special-item-1', {
     delimiters: ["${","}"],
 })
 
-Vue.component('special-item-2', {
-    props: ['plat'],
-    template: `
-    <div class="row mt-5">
-        <div class="col-lg-5 col-md-6 align-self-center order-2 order-md-1 mt-4 mt-md-0">
-            <img src="img/salmon-zucchini.jpg" alt="" class="img-fluid shadow w-100">
-        </div>
-        <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center order-1 order-md-2 py-5">
-            <h2 class="special-number">02.</h2>
-            <div class="dishes-text">
-                <h3><span>Salmon</span><br> Zucchini</h3>
-                <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, accusamus culpa quam amet ipsam odit ea doloremque accusantium quo, itaque possimus eius. In a quis quibusdam omnis atque vero dolores!</p>
-                <h3 class="special-dishes-price">$12.00</h3>
-                <a href="#" class="btn-primary mt-3">book a table <span><i class="fa fa-long-arrow-right"></i></span></a>
-            </div>
-        </div>
-    </div>
-    `,
-    delimiters: ["${","}"],
-})
+
 
 var special = new Vue({
     el: '#gtco-special-dishes',
@@ -79,7 +60,7 @@ var special = new Vue({
     },
     methods: {
         get_plat: function(){
-            axios.get('http://127.0.0.1:8000/api/plat/')
+            axios.get('http://127.0.0.1:8000/api/plat/?speciale=True&fields=nom,prix,image,description,ingredient')
                 .then(response => {
                     console.log(response.data)
                     this.loader=false
@@ -116,7 +97,7 @@ Vue.component('menu-item', {
                     <h4 class="text-muted menu-price">$`+"${ plat.prix }"+`</h4>
                 </div>
             </div>
-            <p>`+"${ plat.ingredient }"+`</p>
+            <p><span v-for="ig in plat.ingredient">`+"${ ig.nom } "+`</span> </p>
         </div>
     </div>
     `,
@@ -127,10 +108,13 @@ Vue.component('menu-item', {
 Vue.component('category-menu-item', {
     props: ['category'],
     template: `
-    <div class="heading-menu">
-        <h3 class="text-center mb-5">`+"${ category.nom }"+`</h3>
+    <div class="col-lg-4 menu-wrap"  v-if="category.categorie_plat.length >0">
+        <div class="heading-menu">
+            <h3 class="text-center mb-5">`+"${ category.nom }"+`</h3>
+        </div>
+        <menu-item v-for="plat in category.categorie_plat" v-bind:plat="plat" v-bind:key="plat.id"></menu-item>
     </div>
-    <menu-item v-for="plat in category.plats" v-bind:plat="plat" v-bind:key="plat.id"></menu-item>
+    
     `,
     delimiters: ["${","}"],
 })
@@ -141,7 +125,9 @@ var menu = new Vue({
     data: {
         loader: true,
         content:false,
-        menu:[],
+        menu: "",
+        categorys:[],
+        id_list: [],
     },
     delimiters: ["${","}"],
     mounted(){
@@ -149,16 +135,48 @@ var menu = new Vue({
     },
     methods: {
         get_menu: function(){
-            axios.get('http://127.0.0.1:8000/api/menu/')
+            var now = new Date();
+            axios.get('http://127.0.0.1:8000/api/menu/?jour='+ weekday[now.getDay()])
                 .then(response => {
-                    console.log(response.data)
+
                     this.loader=false
                     this.content=true
-                    this.menu=response.data
+                    menu=response.data
+                    menu.forEach(me =>{
+                        if(me.jour == weekday[now.getDay()]){
+                            this.menu = me
+                        }
+                    })
+                    this.menu.plats.forEach(plat =>{
+                        this.id_list.push(plat.id)
+                    })
+                    this.get_categorys()
                 })
                 .catch((err) => {
                     console.log(err);
                 })
+        },
+        get_categorys: function(){
+            var now = new Date();
+            axios.get('http://127.0.0.1:8000/api/categorie/')
+                .then(response => {
+                    this.loader=false
+                    this.content=true
+                    this.categorys = response.data
+                    this.actu_cat()
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        },
+        actu_cat: function(){
+            this.categorys.forEach(category => {
+                for(var i=0; i<category.categorie_plat.length; i++){
+                    if(!this.id_list.includes(category.categorie_plat[i].id)){
+                        category.categorie_plat.splice(i, 1);
+                    }
+                }
+            });
         }
     }
 })
@@ -287,3 +305,44 @@ var team = new Vue({
 
 
 // Fin Vue.js pour team
+
+var app = new Vue({
+    el: '#app',
+    data: {
+        loader: true,
+        content:false,
+        plats:[],
+        presentation:"",
+    },
+    delimiters: ["${","}"],
+    mounted(){
+        this.get_plat()
+        this.get_presentation()
+    },
+    methods: {
+        get_plat: function(){
+            axios.get('http://127.0.0.1:8000/api/plat/?speciale=True&fields=nom,prix,image,description,ingredient')
+                .then(response => {
+                    console.log(response.data)
+                    this.loader=false
+                    this.content=true
+                    this.plats=response.data
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        },
+        get_presentation: function(){
+            axios.get('http://127.0.0.1:8000/api/presentation/?statut=True')
+                .then(response => {
+                    console.log(response.data)
+                    this.loader=false
+                    this.content=true
+                    this.presentation=response.data[0]
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
+    }
+})
