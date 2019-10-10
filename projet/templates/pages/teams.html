@@ -1,175 +1,23 @@
 {% extends "bases/base.html" %}
 {% block main %}
+    <!-- Team Section -->
     <section id="gtco-team" class="bg-white section-padding">
-    <teams-todo 
-    v-bind:specialite="specialite"
-    v-bind:titre_team="titre_team"
-    v-bind:image1="image1"
-    v-bind:nom1="nom1"
-    v-bind:fonction1="fonction1"
-    v-bind:fb1="fb1"
-    v-bind:tweet1="tweet1"
-    v-bind:instagram1="instagram1"
-    v-bind:google1="google1"
-    v-bind:image2="image2"
-    v-bind:nom2="nom2"
-    v-bind:fonction2="fonction2"
-    v-bind:fb2="fb2"
-    v-bind:tweet2="tweet2"
-    v-bind:instagram2="instagram2"
-    v-bind:google2="google2"
-    v-bind:image3="image3"
-    v-bind:nom3="nom3"
-    v-bind:fonction3="fonction3"
-    v-bind:fb3="fb3"
-    v-bind:tweet3="tweet3"
-    v-bind:instagram3="instagram3"
-    v-bind:google3="google3"
-
-    ></teams-todo>
-</section>
-<script>
-    Vue.component('teams-todo', 
-                {
-                    props: ['specialite', 'titre_team', 'image1', 'nom1', 'fonction1', 'fb1', 'tweet1', 'instagram1', 'google1', 'image2', 'nom2', 'fonction2', 'fb2', 'tweet2', 'instagram2', 'google2', 'image3', 'nom3', 'fonction3', 'fb3', 'tweet3', 'instagram3', 'google3'],
-                    template: `
-                        <div class="container">
-        <div class="section-content">
-            <div class="heading-section text-center">
-                <span class="subheading">
-                    {{ specialite }}
-                </span>
-                <h2>
-                    {{ titre_team }}
-                </h2>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="team-card mb-5">
-                        <img class="img-fluid" src="{{ image1 }}" alt="">
-                        <div class="team-desc">
-                            <h4 class="mb-0">{{ nom1 }}</h4>
-                            <p class="mb-1">{{ fonction1 }}</p>
-                            <ul class="list-inline mb-0 team-social-links">
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="{{fb1}}"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="{{tweet1}}"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="{{instagram1}}"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="{{ google1 }}"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+        <div class="container">
+            <div class="section-content">
+                <div class="heading-section text-center">
+                    <span class="subheading">
+                        Specialties
+                    </span>
+                    <h2>
+                        Our Team
+                    </h2>
                 </div>
-                <div class="col-md-4">
-                    <div class="team-card mb-5">
-                        <img class="img-fluid" src="{{ image2 }}" alt="">
-                        <div class="team-desc">
-                            <h4 class="mb-0">{{ nom2 }}</h4>
-                            <p class="mb-1">{{ fonction2 }}</p>
-                            <ul class="list-inline mb-0 team-social-links">
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="{{ fb2 }}"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="{{ tweet2 }}"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="{{ instagram2 }}"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="{{ google2 }}"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team-card mb-5">
-                        <img class="img-fluid" src="{{ image3 }}" alt="">
-                        <div class="team-desc">
-                            <h4 class="mb-0">{{ nom3 }}</h4>
-                            <p class="mb-1">{{ fonction3 }}</p>
-                            <ul class="list-inline mb-0 team-social-links">
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="{{ fb3 }}"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="{{ tweet3 }}"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="{{ instagram3 }}"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="{{ google3 }}"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="row">
+                        <span v-if="loader" class="sr-only">Loading...</span>
+                        <team-item v-if="content" v-for="team in teams" v-bind:team="team" v-bind:key="team.id"></team-item>
                 </div>
             </div>
         </div>
-    </div>`
-                })
-    )
-
-    var teams= new Vue({
-                el: '#gtco-team',
-                data: {
-                    specialite: 'Specialties',
-                    titre_team: 'Our Team',
-                    image1: '/static/img/chef-1.jpg',
-                    nom1: 'Aaron Patel',
-                    fonction1: 'CEO',
-                    fb1: 'fab fa-facebook-f',
-                    tweet1: 'fab fa-twitter',
-                    instagram1: 'fab fa-instagram',
-                    google1: 'fab fa-google-plus-g',
-                    image2: '/static/img/chef-2.jpg',
-                    nom2: 'Daniel Tebas',
-                    fonction2: 'Chef',
-                    fb2: 'fab fa-facebook-f',
-                    tweet2: 'fab fa-twitter',
-                    instagram2: 'fab fa-instagram',
-                    google2: 'fab fa-google-plus-g',
-                    image3: '/static/img/chef-3.jpg',
-                    nom3: 'Jon Snows',
-                    fonction3: 'Chef',
-                    fb3: 'fab fa-facebook-f',
-                    tweet3: 'fab fa-twitter',
-                    instagram3: 'fab fa-instagram',
-                    google3: 'fab fa-google-plus-g',    
-                }
-    })
-</script>
+    </section>
+    <!-- End of Team Section -->
 {% endblock main %}

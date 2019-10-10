@@ -109,99 +109,73 @@
                 </h2>
             </div>
             <span v-if="loader" class="sr-only">Loading...</span>
-            <special-item-1 v-if="content" v-for="plat in plats" v-bind:plat="plat" v-bind:key="plat.id"></special-item-1>
+            <special-item-1 v-if="content" v-for="(plat, index) in plats" v-bind:plat="plat" v-bind:index="index"  v-bind:key="plat.id"></special-item-1>
         </div>
     </div>
 </section>
 <!-- End of Special Dishes Section -->		<!-- Menu Section -->
 <section id="gtco-menu" class="section-padding">
-    <menu-todo 
-    v-bind:specialite="specialite"
-    v-bind:titre_menu="titre_menu"
-    v-bind:catego1="catego1"
-    v-bind:image1="image1"
-    v-bind:nom_cat1="nom_cat1"
-    v-bind:prix_cat1="prix_cat1"
-    v-bind:description_cat1="description_cat1"
-    v-bind:image2="image2"
-    v-bind:nom_cat2="nom_cat2"
-    v-bind:prix_cat2="prix_cat2"
-    v-bind:description_cat2="description_cat2"
-    v-bind:image3="image3"
-    v-bind:nom_cat3="nom_cat3"
-    v-bind:prix_cat3="prix_cat3"
-    v-bind:description_cat3="description_cat3"
-    v-bind:catego2= "catego2"
-    v-bind:image4="image4"
-    v-bind:nom_cat4="nom_cat4"
-    v-bind:prix_cat4="prix_cat4"
-    v-bind:description_cat4="description_cat4"
-    v-bind:image5="image5"
-    v-bind:nom_cat5="nom_cat5"
-    v-bind:prix_cat5="prix_cat5"
-    v-bind:description_cat5="description_cat5"
-    v-bind:image6="image6"
-    v-bind:nom_cat6="nom_cat6"
-    v-bind:prix_cat6="prix_cat6"
-    v-bind:description_cat6="description_cat6"
-    v-bind:catego3= "catego3"
-    v-bind:image7="image7"
-    v-bind:nom_cat7="nom_cat7"
-    v-bind:prix_cat7="prix_cat7"
-    v-bind:description_cat7="description_cat7"
-    v-bind:image8="image8"
-    v-bind:nom_cat8="nom_cat8"
-    v-bind:prix_cat8="prix_cat8"
-    v-bind:description_cat8="description_cat8"
-    v-bind:image9="image9"
-    v-bind:nom_cat9="nom_cat9"
-    v-bind:prix_cat9="prix_cat9"
-    v-bind:description_cat9="description_cat9"
-    ></menu-todo>
+    <div class="container">
+        <div class="section-content">
+            <div class="row mb-5">
+                <div class="col-md-12">
+                    <div class="heading-section text-center">
+                        <span class="subheading">
+                            Specialties
+                        </span>
+                        <h2>
+                            Our Menu
+                        </h2>
+                    </div>  
+                </div>
+            </div>
+            <div class="row">
+                <span v-if="loader" class="sr-only">Loading...</span>
+                <category-menu-item v-if="content" v-for="category in menu.categorys" v-bind:category="category" v-bind:key="category.id"></category-menu-item>
+            </div>
+        </div>
+    </div>
 </section>
 <!-- End of menu Section -->		<!-- Testimonial Section-->
 <section id="gtco-testimonial" class="overlay bg-fixed section-padding" style="background-image: url(/static/img/testi-bg.jpg);">
-    <testimonial-todo
-    v-bind:testimony="testimony"
-    v-bind:titre="titre"
-    v-bind:description1="description1"
-    v-bind:auteur1="auteur1"
-    v-bind:fonction1="fonction1"
-    v-bind:fonction11="fonction11"
-    v-bind:description2="description2"
-    v-bind:auteur2="auteur2"
-    v-bind:fonction2="fonction2"
-    v-bind:fonction22="fonction22"
-    ></testimonial-todo>
+    <div class="container">
+        <div class="section-content">
+            <div class="heading-section text-center">
+                <span class="subheading">
+                    Testimony
+                </span>
+                <h2>
+                    Happy Customer
+                </h2>
+            </div>
+            <div class="row">
+                <!-- Testimonial -->
+                <div class="testi-content testi-carousel owl-carousel">
+                    <testimonial-item v-if="content" v-for="testimonial in testimonials" v-bind:testimonial="testimonial" v-bind:key="testimonial.id"></testimonial-item>
+                </div>
+                <!-- End of Testimonial -->
+            </div>
+        </div>
+    </div>
 </section>
 <!-- End of Testimonial Section-->		<!-- Team Section -->
 <section id="gtco-team" class="bg-white section-padding">
-    <teams-todo 
-    v-bind:specialite="specialite"
-    v-bind:titre_team="titre_team"
-    v-bind:image1="image1"
-    v-bind:nom1="nom1"
-    v-bind:fonction1="fonction1"
-    v-bind:fb1="fb1"
-    v-bind:tweet1="tweet1"
-    v-bind:instagram1="instagram1"
-    v-bind:google1="google1"
-    v-bind:image2="image2"
-    v-bind:nom2="nom2"
-    v-bind:fonction2="fonction2"
-    v-bind:fb2="fb2"
-    v-bind:tweet2="tweet2"
-    v-bind:instagram2="instagram2"
-    v-bind:google2="google2"
-    v-bind:image3="image3"
-    v-bind:nom3="nom3"
-    v-bind:fonction3="fonction3"
-    v-bind:fb3="fb3"
-    v-bind:tweet3="tweet3"
-    v-bind:instagram3="instagram3"
-    v-bind:google3="google3"
-
-    ></teams-todo>
+    <div class="container">
+        <div class="section-content">
+            <div class="heading-section text-center">
+                <span class="subheading">
+                    Specialties
+                </span>
+                <h2>
+                    Our Team
+                </h2>
+            </div>
+            <div class="row">
+                    <span v-if="loader" class="sr-only">Loading...</span>
+                    <team-item v-if="content" v-for="team in teams" v-bind:team="team" v-bind:key="team.id"></team-item>
+            </div>
+        </div>
+    </div>
 </section>
 <!-- End of Team Section -->		<!-- Reservation Section -->
 <section id="gtco-reservation" class="bg-fixed bg-white section-padding overlay" style="background-image: url(/static/img/reservation-bg.jpg);">
