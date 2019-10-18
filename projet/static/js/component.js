@@ -65,7 +65,7 @@ var special = new Vue({
                     console.log(response.data)
                     this.loader=false
                     this.content=true
-                    this.plats=response.data
+                    this.plats=response.data.slice(0,4)
                 })
                 .catch((err) => {
                     console.log(err);
@@ -110,7 +110,7 @@ Vue.component('category-menu-item', {
     template: `
     <div class="col-lg-4 menu-wrap"  v-if="category.categorie_plat.length >0">
         <div class="heading-menu">
-            <h3 class="text-center mb-5">`+"${ category.nom }"+`</h3>
+            <h3 class="text-center mb-5">`+"${ category.nom.substring(0,30) }"+`</h3>
         </div>
         <menu-item v-for="plat in category.categorie_plat" v-bind:plat="plat" v-bind:key="plat.id"></menu-item>
     </div>
