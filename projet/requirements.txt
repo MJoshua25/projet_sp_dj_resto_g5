@@ -6,7 +6,7 @@ django-utils2==2.5.4
 djangorestframework==3.10.3
 drf-dynamic-fields==0.3.1
 Faker==2.0.2
-Pillow==6.2.0
+Pillow==8.1.1
 python-dateutil==2.8.0
 python-utils==2.3.0
 pytz==2019.3
